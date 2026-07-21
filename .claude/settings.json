@@ -9,7 +9,9 @@
       "Bash(npm pkg *)",
       "Bash(rm -f public/next.svg public/vercel.svg public/globe.svg public/file.svg public/window.svg)",
       "Bash(npx vitest *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"exit-grep: $?\")"
     ]
   }
 }
