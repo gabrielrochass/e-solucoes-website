@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm audit *)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('metadata',{}\\).get\\('vulnerabilities',{}\\)\\)\\); [print\\(k, v.get\\('severity'\\), v.get\\('via'\\)[0].get\\('title'\\) if isinstance\\(v.get\\('via'\\)[0], dict\\) else v.get\\('via'\\)[0]\\) for k,v in d.get\\('vulnerabilities',{}\\).items\\(\\)]\")",
+      "Bash(npx shadcn@latest init -b radix -p nova -y --css-variables)",
+      "Bash(npx shadcn@latest add button card badge table input textarea checkbox select label sheet accordion separator sonner dialog slider -y)",
+      "Bash(npm install *)",
+      "Bash(npm pkg *)",
+      "Bash(rm -f public/next.svg public/vercel.svg public/globe.svg public/file.svg public/window.svg)",
+      "Bash(npx vitest *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
