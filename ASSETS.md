@@ -16,7 +16,7 @@ placeholder projetado (ilustração SVG da marca) até o asset chegar.
 
 | slotId | Página / seção | Dimensões (1x) | Ratio | Conteúdo esperado | Direção de arte |
 | ------ | -------------- | -------------- | ----- | ----------------- | --------------- |
-| _(slots são adicionados conforme as seções são construídas — F3 em diante)_ | | | | | |
+| `home-especialista` | Home / CTA final | 480×640 | 3/4 | Retrato de Adna Correia | Fundo neutro claro, luz lateral suave, olhar à câmera, enquadramento busto |
 
 ## Assets pendentes fora de slots
 

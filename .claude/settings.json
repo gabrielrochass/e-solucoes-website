@@ -11,7 +11,9 @@
       "Bash(npx vitest *)",
       "Bash(npm run *)",
       "Bash(npx tsc *)",
-      "Bash(echo \"exit-grep: $?\")"
+      "Bash(echo \"exit-grep: $?\")",
+      "Skill(run)",
+      "Skill(run:*)"
     ]
   }
 }
