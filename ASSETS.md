@@ -17,6 +17,14 @@ placeholder projetado (ilustração SVG da marca) até o asset chegar.
 | slotId | Página / seção | Dimensões (1x) | Ratio | Conteúdo esperado | Direção de arte |
 | ------ | -------------- | -------------- | ----- | ----------------- | --------------- |
 | `home-especialista` | Home / CTA final | 480×640 | 3/4 | Retrato de Adna Correia | Fundo neutro claro, luz lateral suave, olhar à câmera, enquadramento busto |
+| `sobre-especialista` | /sobre / seção "Quem responde" | 480×640 | 3/4 | Retrato de Adna Correia (pode ser a mesma foto do slot da home ou variação) | Mesma sessão do retrato principal |
+| `servico-departamento-pessoal-case` | /servicos/departamento-pessoal / case | 640×480 | 4/3 | Foto de operação de DP ou infográfico do case | Ambiente de trabalho real, sem stock genérico |
+| `servico-clinica-ocupacional-case` | /servicos/clinica-ocupacional / case | 640×480 | 4/3 | Foto da clínica (recepção/atendimento) | Acolhedora e profissional; com autorização de imagem |
+| `servico-engenharia-sst-case` | /servicos/engenharia-sst / case | 640×480 | 4/3 | Foto de campo (EPI, inspeção) | Equipe própria em atividade real |
+| `servico-complementares-case` | /servicos/complementares / case | 640×480 | 4/3 | Foto de perícia/laudo ou infográfico | Documento/atividade técnica |
+| `autor-adna` | Blog / bio de autor | 160×160 | 1/1 | Avatar de Adna Correia | Recorte quadrado do retrato principal |
+| `autor-equipe` | Blog / bio de autor | 160×160 | 1/1 | Marca/foto da equipe | Pode ser monograma da marca |
+| `blog-cover-<slug>` | Cards e capas do blog | 1280×720 | 16/9 | Capa por artigo (opcional — placeholder por domínio já cobre) | Infográfico ou foto temática; adicionar via frontmatter `cover` |
 
 ## Assets pendentes fora de slots
 

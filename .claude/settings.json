@@ -14,7 +14,17 @@
       "Bash(echo \"exit-grep: $?\")",
       "Skill(run)",
       "Skill(run:*)",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(curl -sL -o nr05_2023.pdf \"https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/NR05atualizada2023.pdf\")",
+      "Bash(py --version)",
+      "Bash(npx velite *)",
+      "Bash(pdftotext -layout nr05_2023.pdf nr05_2023.txt)",
+      "WebSearch",
+      "WebFetch(domain:www.normaslegais.com.br)",
+      "Bash(pdftotext -f 11 -l 11 -bbox nr05_2023.pdf page11.html)",
+      "Bash(pdftotext -f 11 -l 11 -table nr05_2023.pdf -)",
+      "Bash(pdftotext -f 11 -l 11 -lineprinter nr05_2023.pdf -)",
+      "Bash(pdftotext -table nr4_oficial.pdf nr4_oficial.txt)"
     ]
   }
 }

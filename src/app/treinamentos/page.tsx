@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { CipaDiagnostic } from "@/components/interactive/cipa-diagnostic/cipa-diagnostic";
 import { TrainingComparisonTable } from "@/components/interactive/training-table/training-comparison-table";
 import { Section } from "@/components/sections/shared/section";
+import { SectionHeading } from "@/components/sections/shared/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, courseSchema } from "@/lib/seo/schema";
 import { trainings } from "@/lib/trainings";
@@ -39,6 +41,17 @@ export default async function TreinamentosPage() {
           matrículas? Fale com a gente pelo formulário de contato — montamos a
           trilha pelo grau de risco da sua operação.
         </p>
+      </Section>
+
+      <Section tone="tint" id="diagnostico-cipa">
+        <SectionHeading
+          eyebrow="NR-5 · Dimensionamento"
+          title="Não sabe qual CIPA sua empresa precisa?"
+          lead="Quatro campos e você descobre quantos membros, quanta hora de treinamento e quais NRs ficam no seu radar."
+        />
+        <div className="mt-12">
+          <CipaDiagnostic />
+        </div>
       </Section>
 
       {catalog.map((training) => (

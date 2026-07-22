@@ -12,5 +12,8 @@ function getMDXComponent(code: string) {
 
 export function MDXContent({ code }: { code: string }) {
   const Component = getMDXComponent(code);
+  // Server Component renderizado uma vez no build (SSG) — criar o
+  // componente aqui é o padrão do runtime Velite, não há re-render.
+  // eslint-disable-next-line react-hooks/static-components
   return <Component components={mdxComponents} />;
 }

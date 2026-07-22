@@ -2,6 +2,7 @@ import type {
   Article,
   BreadcrumbList,
   Course,
+  LocalBusiness,
   Organization,
   WithContext,
 } from "schema-dts";
@@ -21,6 +22,24 @@ export function organizationSchema(): WithContext<Organization> {
       "@type": "PostalAddress",
       ...siteConfig.address,
     },
+  };
+}
+
+export function localBusinessSchema(): WithContext<LocalBusiness> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    address: {
+      "@type": "PostalAddress",
+      ...siteConfig.address,
+    },
+    areaServed: "Recife e Região Metropolitana, PE",
   };
 }
 
