@@ -1,13 +1,12 @@
-export const metadata = { title: "Departamento Pessoal" };
+import type { Metadata } from "next";
+import { ServicePage } from "@/components/sections/services/service-page";
+import { departamentoPessoalService } from "@/data/services/departamento-pessoal";
+
+export const metadata: Metadata = {
+  title: "Departamento Pessoal",
+  description: departamentoPessoalService.metaDescription,
+};
 
 export default function DepartamentoPessoalPage() {
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="text-eyebrow text-accent-text">Em construção</p>
-      <h1 className="text-display mt-4 text-petrol-700">Departamento Pessoal</h1>
-      <p className="mt-6 max-w-md text-ink-muted">
-        O conteúdo desta página chega nas próximas fases da implementação.
-      </p>
-    </section>
-  );
+  return <ServicePage content={departamentoPessoalService} />;
 }

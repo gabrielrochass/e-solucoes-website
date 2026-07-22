@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { publishedPosts } from "@/lib/posts";
 import { siteConfig } from "@/lib/site-config";
 
 const staticPaths = [
@@ -16,9 +17,18 @@ const staticPaths = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return staticPaths.map((path) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${siteConfig.url}${path === "/" ? "" : path}`,
     changeFrequency: path === "/blog" ? "weekly" : "monthly",
     priority: path === "/" ? 1 : 0.7,
   }));
+
+  const postEntries: MetadataRoute.Sitemap = publishedPosts.map((post) => ({
+    url: `${siteConfig.url}${post.permalink}`,
+    lastModified: post.updated ?? post.date,
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...postEntries];
 }
