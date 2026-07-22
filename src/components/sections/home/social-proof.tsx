@@ -1,3 +1,4 @@
+import { NumberTicker } from "@/components/motion/number-ticker";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/sections/shared/section";
 import { SectionHeading } from "@/components/sections/shared/section-heading";
@@ -7,9 +8,9 @@ import { SectionHeading } from "@/components/sections/shared/section-heading";
  * go-live. Fonte: PRD v2.0, seção 3.1 "Prova Social".
  */
 const stats = [
-  { value: "850", suffix: "+", label: "empresas atendidas" },
-  { value: "100", suffix: "%", label: "dos clientes com compliance ativo" },
-  { value: "35", suffix: "%", label: "de redução média no custo de DP" },
+  { value: 850, suffix: "+", label: "empresas atendidas" },
+  { value: 100, suffix: "%", label: "dos clientes com compliance ativo" },
+  { value: 35, suffix: "%", label: "de redução média no custo de DP" },
 ];
 
 export function SocialProof() {
@@ -24,8 +25,8 @@ export function SocialProof() {
         <dl className="grid gap-10 border-l-2 border-petrol-800 pl-6 sm:grid-cols-3 sm:gap-6">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <dd className="text-stat tabular-stat text-white">
-                {stat.value}
+              <dd className="text-stat text-white">
+                <NumberTicker value={stat.value} />
                 <span className="text-h2 text-accent-on-inverse">
                   {stat.suffix}
                 </span>

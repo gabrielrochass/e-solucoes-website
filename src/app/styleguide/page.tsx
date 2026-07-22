@@ -17,6 +17,9 @@ import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { RiskMatrixPattern } from "@/components/illustrations/risk-matrix-pattern";
+import { NumberTicker } from "@/components/motion/number-ticker";
+import { ScrollTimeline } from "@/components/motion/scroll-timeline";
+import { TextReveal } from "@/components/motion/text-reveal";
 import { riskLabels, type RiskLevel } from "@/lib/risk";
 
 export const metadata: Metadata = {
@@ -199,6 +202,46 @@ export default function StyleguidePage() {
             </ImageSlot>
           </div>
         </div>
+      </Section>
+
+      <Section title="Motion (21st.dev re-skin)">
+        <p className="text-eyebrow text-ink-meta">Number Ticker</p>
+        <p className="text-stat mt-2 text-petrol-700">
+          <NumberTicker value={850} />
+          <span className="text-h3 text-orange-700">+</span>
+        </p>
+
+        <p className="text-eyebrow mt-10 text-ink-meta">Text Reveal (scroll)</p>
+        <TextReveal
+          text="Risco dimensionado. Pessoas protegidas."
+          className="text-h2 mt-2 text-petrol-700"
+        />
+
+        <p className="text-eyebrow mt-10 mb-6 text-ink-meta">
+          Scroll Timeline (beam preenche com o scroll)
+        </p>
+        <ScrollTimeline
+          entries={[
+            {
+              title: "Fase 1",
+              content: (
+                <p className="text-sm leading-relaxed text-ink-muted">
+                  Conteúdo da primeira entrada — role para ver o beam
+                  preencher o trilho à esquerda.
+                </p>
+              ),
+            },
+            {
+              title: "Fase 2",
+              content: (
+                <p className="text-sm leading-relaxed text-ink-muted">
+                  Segunda entrada. Com prefers-reduced-motion o beam fica
+                  100% preenchido, estático.
+                </p>
+              ),
+            },
+          ]}
+        />
       </Section>
 
       <Section title="Cards">

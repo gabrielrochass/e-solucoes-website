@@ -117,6 +117,18 @@
   /* Shadows frias (derivadas do petrol-950) */
   --shadow-card: 0 1px 2px rgb(6 30 40 / 0.06), 0 4px 12px rgb(6 30 40 / 0.06);
   --shadow-card-hover: 0 2px 4px rgb(6 30 40 / 0.08), 0 12px 28px rgb(6 30 40 / 0.1);
+
+  /* Marquee de depoimentos — a lista é duplicada, -50% fecha o loop */
+  --animate-marquee: marquee 45s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @theme inline {

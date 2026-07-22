@@ -1,17 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardBody,
-  CardIcon,
-  CardMeta,
-  CardTitle,
-} from "@/components/cards/card";
-import { CardHoverReveal } from "@/components/cards/card-hover-reveal";
+import { CardIcon, CardMeta } from "@/components/cards/card";
 import { IconPerigoLosango } from "@/components/icons";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { LegislationTimeline } from "@/components/interactive/legislation-timeline/legislation-timeline";
+import { SolutionSticky } from "@/components/sections/services/solution-sticky";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger } from "@/components/motion/stagger";
@@ -82,27 +76,9 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           eyebrow="Como resolvemos"
           title="A solução, parte a parte"
         />
-        <Stagger
-          className="mt-12 grid gap-6 sm:grid-cols-2"
-          itemClassName="h-full"
-        >
-          {content.solutions.map((solution) => (
-            <CardHoverReveal
-              key={solution.title}
-              className="h-full"
-              summary={
-                <Card className="flex h-full flex-col">
-                  <CardIcon>
-                    <solution.icon size={24} />
-                  </CardIcon>
-                  <CardTitle className="mt-4">{solution.title}</CardTitle>
-                  <CardBody className="mt-2 pb-8">{solution.summary}</CardBody>
-                </Card>
-              }
-              detail={<CardBody>{solution.detail}</CardBody>}
-            />
-          ))}
-        </Stagger>
+        <div className="mt-12">
+          <SolutionSticky solutions={content.solutions} />
+        </div>
       </Section>
 
       {/* Timeline legislação */}

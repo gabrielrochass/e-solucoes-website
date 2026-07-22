@@ -7,11 +7,18 @@ import {
   IconEstetoscopio,
   IconFolhaPagamento,
 } from "@/components/icons";
+import { DocLinesPattern } from "@/components/illustrations/doc-lines-pattern";
+import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { RiskMatrixPattern } from "@/components/illustrations/risk-matrix-pattern";
 import { Reveal } from "@/components/motion/reveal";
+import {
+  ScrollTimeline,
+  type ScrollTimelineEntry,
+} from "@/components/motion/scroll-timeline";
 import { Stagger } from "@/components/motion/stagger";
+import { TextReveal } from "@/components/motion/text-reveal";
 import { Section } from "@/components/sections/shared/section";
 import { SectionHeading } from "@/components/sections/shared/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -24,22 +31,112 @@ export const metadata: Metadata = {
     "SST, clínica ocupacional e departamento pessoal na mesma operação, em Recife/PE. Conheça a tese da E-Soluções: conformidade integrada, sem retrabalho.",
 };
 
-const steps = [
+function StepBullets({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-4 space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2.5 text-sm leading-relaxed">
+          <span
+            aria-hidden
+            className="mt-1.5 size-2 shrink-0 rounded-xs bg-petrol-300"
+          />
+          <span className="text-ink-muted">{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+const methodEntries: ScrollTimelineEntry[] = [
   {
     title: "Diagnóstico",
-    body: "Mapeamos o que existe: documentos, exames, folha, prazos. Sem julgamento — só o retrato honesto.",
+    content: (
+      <div>
+        <p className="leading-relaxed text-ink">
+          Mapeamos o que existe: documentos, exames, folha, prazos. Sem
+          julgamento — só o retrato honesto de onde a empresa está.
+        </p>
+        <StepBullets
+          items={[
+            "Inventário de documentos legais e vencimentos",
+            "Conversa com RH e operações sobre a rotina real",
+            "Retrato de conformidade por pilar (DP, clínica, SST)",
+          ]}
+        />
+        <div aria-hidden className="mt-6 max-w-56 opacity-80">
+          <RiskMatrixPattern
+            tone="light"
+            rows={3}
+            cols={6}
+            litCells={[
+              { x: 1, y: 1, level: "medium" },
+              { x: 4, y: 0, level: "high" },
+            ]}
+            className="h-auto w-full"
+          />
+        </div>
+      </div>
+    ),
   },
   {
     title: "Plano dimensionado",
-    body: "Prioridade pelo risco real e pelo passivo potencial, não por pacote de prateleira.",
+    content: (
+      <div>
+        <p className="leading-relaxed text-ink">
+          Prioridade pelo risco real e pelo passivo potencial, não por pacote
+          de prateleira.
+        </p>
+        <StepBullets
+          items={[
+            "Urgências primeiro: o que gera multa ou interdição amanhã",
+            "Cronograma com responsáveis e prazos por entrega",
+            "Escopo e orçamento fechados antes de começar",
+          ]}
+        />
+        <div aria-hidden className="mt-6 h-24 max-w-56 overflow-hidden rounded-md opacity-80">
+          <DocLinesPattern tone="light" />
+        </div>
+      </div>
+    ),
   },
   {
     title: "Execução integrada",
-    body: "PGR, PCMSO, exames e eSocial saem da mesma operação — os dados batem entre si por construção.",
+    content: (
+      <div>
+        <p className="leading-relaxed text-ink">
+          PGR, PCMSO, exames e eSocial saem da mesma operação — os dados batem
+          entre si por construção.
+        </p>
+        <StepBullets
+          items={[
+            "O risco do PGR dimensiona o exame do PCMSO",
+            "Eventos de SST do eSocial consistentes com a folha",
+            "Um responsável técnico com nome e telefone",
+          ]}
+        />
+        <div aria-hidden className="mt-6 h-24 max-w-56 overflow-hidden rounded-md opacity-80">
+          <HexPattern tone="light" />
+        </div>
+      </div>
+    ),
   },
   {
     title: "Acompanhamento",
-    body: "Legislação muda; seu compliance acompanha. Revisões e alertas de prazo fazem parte do serviço.",
+    content: (
+      <div>
+        <p className="leading-relaxed text-ink">
+          Legislação muda; seu compliance acompanha. Revisões e alertas de
+          prazo fazem parte do serviço, não de um aditivo.
+        </p>
+        <StepBullets
+          items={[
+            "Revisão a cada mudança de norma, quadro ou processo",
+            "Alertas de vencimento de exames, laudos e treinamentos",
+            "Indicadores periódicos para a gestão",
+          ]}
+        />
+      </div>
+    ),
   },
 ];
 
@@ -82,6 +179,13 @@ export default function SobrePage() {
       </section>
 
       <Section>
+        <TextReveal
+          text="Risco dimensionado. Pessoas protegidas. Empresa em conformidade."
+          className="text-display mx-auto max-w-4xl text-petrol-700"
+        />
+      </Section>
+
+      <Section tone="tint">
         <SectionHeading
           eyebrow="A tese"
           title="Um dado só, três usos"
@@ -102,21 +206,15 @@ export default function SobrePage() {
         </Stagger>
       </Section>
 
-      <Section tone="tint">
-        <SectionHeading eyebrow="Como trabalhamos" title="Método, não pacote" />
-        <Stagger className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <div key={step.title}>
-              <p className="text-stat tabular-stat text-petrol-400">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="text-h3 mt-2 text-petrol-700">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                {step.body}
-              </p>
-            </div>
-          ))}
-        </Stagger>
+      <Section>
+        <SectionHeading
+          eyebrow="Como trabalhamos"
+          title="Método, não pacote"
+          lead="Quatro fases, sempre nesta ordem — a linha abaixo acompanha seu scroll pelo caminho completo."
+        />
+        <div className="mt-14">
+          <ScrollTimeline entries={methodEntries} />
+        </div>
       </Section>
 
       <Section>
