@@ -107,7 +107,7 @@ export default function SobrePage() {
         <Stagger className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div key={step.title}>
-              <p className="text-stat tabular-stat text-petrol-200">
+              <p className="text-stat tabular-stat text-petrol-400">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <h3 className="text-h3 mt-2 text-petrol-700">{step.title}</h3>

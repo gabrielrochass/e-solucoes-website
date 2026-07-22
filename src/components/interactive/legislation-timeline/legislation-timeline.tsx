@@ -16,7 +16,7 @@ interface LegislationTimelineProps {
  */
 export function LegislationTimeline({ events }: LegislationTimelineProps) {
   const [focusIndex, setFocusIndex] = useState(0);
-  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const trackRef = useRef<HTMLUListElement>(null);
 
   function moveFocus(nextIndex: number) {
@@ -46,10 +46,10 @@ export function LegislationTimeline({ events }: LegislationTimelineProps) {
       <div className="relative">
         <ul
           ref={trackRef}
-          role="group"
+          role="list"
           aria-label="Linha do tempo da legislação"
           onKeyDown={handleKeyDown}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto border-b border-neutral-200 pb-8 [scrollbar-width:thin]"
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto border-b border-neutral-200 pb-8 scrollbar-thin"
         >
           {events.map((event, index) => (
             <TimelineItem
@@ -57,7 +57,7 @@ export function LegislationTimeline({ events }: LegislationTimelineProps) {
               event={event}
               tabIndex={index === focusIndex ? 0 : -1}
               onFocus={() => setFocusIndex(index)}
-              itemRef={(el) => {
+              buttonRef={(el) => {
                 itemRefs.current[index] = el;
               }}
             />
@@ -65,7 +65,7 @@ export function LegislationTimeline({ events }: LegislationTimelineProps) {
         </ul>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-surface to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l from-surface to-transparent"
         />
       </div>
       <div className="mt-4 flex items-center justify-between">

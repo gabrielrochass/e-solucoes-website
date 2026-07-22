@@ -65,9 +65,9 @@ export const mdxComponents: MDXComponents = {
   ),
   hr: () => (
     <div aria-hidden className="mt-10 flex gap-1.5">
-      <span className="size-2 rounded-[2px] bg-petrol-200" />
-      <span className="size-2 rounded-[2px] bg-orange-400" />
-      <span className="size-2 rounded-[2px] bg-petrol-200" />
+      <span className="size-2 rounded-xs bg-petrol-200" />
+      <span className="size-2 rounded-xs bg-orange-400" />
+      <span className="size-2 rounded-xs bg-petrol-200" />
     </div>
   ),
 };

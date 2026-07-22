@@ -6,7 +6,7 @@ import { formatPrice, type Training } from "@/lib/trainings/types";
 export function RelatedTrainings({ trainings }: { trainings: Training[] }) {
   if (trainings.length === 0) return null;
   return (
-    <aside
+    <section
       aria-label="Treinamentos recomendados"
       className="mt-14 rounded-lg bg-surface-inverse p-card text-ink-on-inverse"
     >
@@ -33,6 +33,6 @@ export function RelatedTrainings({ trainings }: { trainings: Training[] }) {
           </li>
         ))}
       </ul>
-    </aside>
+    </section>
   );
 }

@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Soluções — Website Institucional
 
-## Getting Started
+Site institucional da E-Soluções (SST, clínica ocupacional e departamento pessoal — Recife/PE). Frontend 100% estático em Next.js; sem backend próprio nesta fase.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, tudo SSG) + **React 19** + **TypeScript strict**
+- **Tailwind CSS 4** (tokens em `@theme` no `src/app/globals.css` — sem tailwind.config) + **shadcn/ui** (Radix)
+- **Velite** — blog em MDX com frontmatter validado por Zod (`velite.config.ts`)
+- **motion** (Framer Motion) — só via `src/components/motion/{reveal,stagger}.tsx`
+- **Vitest** — motor CIPA, catálogo, regressão de contraste WCAG dos tokens
+
+## Rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # velite dev + next dev
+npm run build    # velite + next build (todas as rotas estáticas)
+npm run test     # vitest
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Arquitetura em 1 minuto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Conteúdo dos serviços**: dados tipados em `src/data/services/*.ts` renderizados por um template único (`src/components/sections/services/service-page.tsx`).
+- **Catálogo de treinamentos**: `src/lib/trainings/` — interface `TrainingProvider`; hoje um JSON local validado por Zod. Quando a API do Host existir, crie `HostTrainingProvider` e troque 1 linha em `src/lib/trainings/index.ts`.
+- **Blog**: `src/content/blog/*.mdx` (3 publicados + 9 stubs `draft: true`, fora de listagem/sitemap em produção). Componentes MDX: TldrBox, Checklist, PullQuote.
+- **Diagnóstico CIPA**: motor puro em `src/lib/cipa/engine.ts`; dimensionamento transcrito do Quadro I da NR-5 vigente (fontes e ressalvas em `src/lib/cipa/cipa-data.ts`).
+- **Contato**: quiz de 3 perguntas pré-preenche o formulário (RHF + Zod + server action). E-mail via interface `EmailProvider` — stub de console até plugar Resend (`src/lib/email/index.ts`).
+- **Analytics**: GA4 só com consentimento (banner LGPD); eventos tipados em `src/lib/analytics.ts`. Configure `NEXT_PUBLIC_GA_ID` (ver `.env.example`).
+- **SEO**: metadata API + JSON-LD (Organization, LocalBusiness, Article, Course, Breadcrumb) em `src/lib/seo/schema.ts`; `sitemap.ts`/`robots.ts` nativos; OG images do blog geradas no build.
+- **Assets**: fotos reais ainda não existem — slots documentados em [ASSETS.md](ASSETS.md) (troca 1:1 sem CLS).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Qualidade (verificado nesta versão)
 
-## Learn More
+- Lighthouse desktop **100/100/100/100** em home, serviço, treinamentos, blog post e sobre (CLS 0, LCP ≤ 0,7s local)
+- **0 violações** no accesslint (WCAG 2.2) nas 10 rotas
+- Contraste dos tokens coberto por teste de regressão (`src/lib/design/tokens.contrast.test.ts`)
 
-To learn more about Next.js, take a look at the following resources:
+## Pendências antes do go-live (buscar por `[VALIDAR]`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dados de contato/endereço reais (`src/lib/site-config.ts`), números de prova social, cases de cliente, revisão jurídica das páginas legais, bios/fotos, mapeamento setor→grau de risco do diagnóstico CIPA, GA4 property e domínio definitivo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy (Vercel)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projeto pronto para Vercel sem configuração especial (build = `npm run build`). Antes: definir env vars (`NEXT_PUBLIC_GA_ID`, futuramente `RESEND_API_KEY` + `npm install resend`), atualizar `siteConfig.url` para o domínio final.

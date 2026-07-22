@@ -35,14 +35,14 @@ export function PostCard({ post }: { post: Post }) {
             <CardBadge key={nr} nr={nr} />
           ))}
         </div>
-        <h3 className="text-h3 mt-3 text-petrol-700">
+        <h2 className="text-h3 mt-3 text-petrol-700">
           <Link
             href={post.permalink}
             className="after:absolute after:inset-0 focus-visible:outline-none"
           >
             {post.title}
           </Link>
-        </h3>
+        </h2>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
           {post.description}
         </p>

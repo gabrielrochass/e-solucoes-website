@@ -6,7 +6,7 @@ import type { Author } from "@/lib/posts";
 
 export function AuthorBio({ author }: { author: Author }) {
   return (
-    <aside
+    <section
       aria-label={`Sobre ${author.name}`}
       className="mt-14 rounded-lg bg-surface-tint p-card"
     >
@@ -27,6 +27,6 @@ export function AuthorBio({ author }: { author: Author }) {
           <Link href="/contato">Agendar conversa</Link>
         </Button>
       </div>
-    </aside>
+    </section>
   );
 }

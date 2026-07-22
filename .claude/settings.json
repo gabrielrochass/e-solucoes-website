@@ -24,7 +24,9 @@
       "Bash(pdftotext -f 11 -l 11 -bbox nr05_2023.pdf page11.html)",
       "Bash(pdftotext -f 11 -l 11 -table nr05_2023.pdf -)",
       "Bash(pdftotext -f 11 -l 11 -lineprinter nr05_2023.pdf -)",
-      "Bash(pdftotext -table nr4_oficial.pdf nr4_oficial.txt)"
+      "Bash(pdftotext -table nr4_oficial.pdf nr4_oficial.txt)",
+      "Bash(npx -y @accesslint/cli@latest scan http://localhost:3000/ --port 9222 --format json)",
+      "Bash(python -c ' *)"
     ]
   }
 }

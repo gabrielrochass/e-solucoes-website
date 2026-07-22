@@ -122,7 +122,7 @@ export function CardCTA({ href, className, children }: CardCTAProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex min-h-6 items-center gap-1.5 font-medium text-petrol-500 underline-offset-4 transition-colors hover:text-petrol-600 hover:underline",
+        "inline-flex min-h-6 items-center gap-1.5 font-medium text-petrol-500 underline underline-offset-4 transition-colors hover:text-petrol-600",
         className,
       )}
     >

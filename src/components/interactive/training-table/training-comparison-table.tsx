@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowUpDown, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardBadge } from "@/components/cards/card";
@@ -79,13 +78,23 @@ function TrainingDetails({ training }: { training: Training }) {
   );
 }
 
-function TableInner({ trainings }: TrainingComparisonTableProps) {
-  const searchParams = useSearchParams();
+export function TrainingComparisonTable({
+  trainings,
+}: TrainingComparisonTableProps) {
   const [filters, setFilters] = useState<TrainingFilterState>({
-    nr: searchParams.get("nr") ?? "all",
+    nr: "all",
     modality: "all",
     riskGrade: "all",
   });
+
+  // Lê ?nr= após o mount: o HTML estático renderiza a tabela completa
+  // (zero CLS) e o filtro do deep-link aplica na hidratação. setState aqui
+  // é intencional e roda uma única vez — não há cascata.
+  useEffect(() => {
+    const nr = new URLSearchParams(window.location.search).get("nr");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (nr) setFilters((current) => ({ ...current, nr }));
+  }, []);
   const [sortKey, setSortKey] = useState<SortKey>("title");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -209,9 +218,9 @@ function TableInner({ trainings }: TrainingComparisonTableProps) {
                 {formatPrice(training.priceCents)}
               </p>
             </div>
-            <h3 className="mt-3 font-semibold text-petrol-700">
+            <p className="mt-3 font-semibold text-petrol-700">
               {training.title}
-            </h3>
+            </p>
             <p className="text-eyebrow mt-1 text-ink-meta">
               {training.hours}h ·{" "}
               {training.modalities.map((m) => modalityLabels[m]).join(" / ")}
@@ -295,12 +304,3 @@ function TableRow({
   );
 }
 
-export function TrainingComparisonTable({
-  trainings,
-}: TrainingComparisonTableProps) {
-  return (
-    <Suspense>
-      <TableInner trainings={trainings} />
-    </Suspense>
-  );
-}

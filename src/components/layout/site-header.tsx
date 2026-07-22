@@ -16,10 +16,10 @@ export function SiteHeader() {
             aria-hidden
             className="grid grid-cols-2 gap-0.5"
           >
-            <span className="size-2 rounded-[2px] bg-petrol-700" />
-            <span className="size-2 rounded-[2px] bg-orange-400" />
-            <span className="size-2 rounded-[2px] bg-petrol-300" />
-            <span className="size-2 rounded-[2px] bg-petrol-700" />
+            <span className="size-2 rounded-xs bg-petrol-700" />
+            <span className="size-2 rounded-xs bg-orange-400" />
+            <span className="size-2 rounded-xs bg-petrol-300" />
+            <span className="size-2 rounded-xs bg-petrol-700" />
           </span>
           {siteConfig.name}
         </Link>

@@ -75,7 +75,9 @@
   --color-surface-tint: #eff6f9;
   --color-surface-inverse: #061e28;
   --color-ink-muted: #4a5a63;
-  --color-ink-meta: #64757e;
+  /* #64757e reprovava por 0.01 sobre paper (4.49:1) — meta text usa o
+     mesmo tom do muted, seguro em paper, branco e tints. */
+  --color-ink-meta: #4a5a63;
   --color-ink-on-inverse: #ffffff;
   --color-ink-muted-on-inverse: #aed4e3;
   --color-accent: #ff8c42;

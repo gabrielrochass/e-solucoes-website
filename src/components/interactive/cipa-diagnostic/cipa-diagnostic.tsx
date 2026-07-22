@@ -110,7 +110,9 @@ export function CipaDiagnostic() {
       >
         <div className="grid gap-5">
           <div className="grid gap-1.5">
-            <Label htmlFor="cipa-setor">Setor da empresa</Label>
+            <Label id="cipa-setor-label" htmlFor="cipa-setor">
+              Setor da empresa
+            </Label>
             <Select
               value={groupId}
               onValueChange={(value) => {
@@ -122,7 +124,11 @@ export function CipaDiagnostic() {
                 }
               }}
             >
-              <SelectTrigger id="cipa-setor" className="w-full">
+              <SelectTrigger
+                id="cipa-setor"
+                aria-labelledby="cipa-setor-label cipa-setor"
+                className="w-full"
+              >
                 <SelectValue placeholder="Escolha o setor" />
               </SelectTrigger>
               <SelectContent>
@@ -136,7 +142,9 @@ export function CipaDiagnostic() {
           </div>
 
           <div className="grid gap-1.5">
-            <Label htmlFor="cipa-grau">Grau de risco (NR-4)</Label>
+            <Label id="cipa-grau-label" htmlFor="cipa-grau">
+              Grau de risco (NR-4)
+            </Label>
             <Select
               value={riskGrade}
               onValueChange={(value) => {
@@ -144,7 +152,11 @@ export function CipaDiagnostic() {
                 setRiskGrade(value);
               }}
             >
-              <SelectTrigger id="cipa-grau" className="w-full">
+              <SelectTrigger
+                id="cipa-grau"
+                aria-labelledby="cipa-grau-label cipa-grau"
+                className="w-full"
+              >
                 <SelectValue placeholder="1 a 4" />
               </SelectTrigger>
               <SelectContent>
@@ -183,10 +195,12 @@ export function CipaDiagnostic() {
                 <div key={option.value} className="flex items-center gap-2">
                   <Checkbox
                     id={`cipa-turno-${option.value}`}
+                    aria-labelledby={`cipa-turno-${option.value}-label`}
                     checked={shifts.includes(option.value)}
                     onCheckedChange={() => toggleShift(option.value)}
                   />
                   <Label
+                    id={`cipa-turno-${option.value}-label`}
                     htmlFor={`cipa-turno-${option.value}`}
                     className="font-normal"
                   >

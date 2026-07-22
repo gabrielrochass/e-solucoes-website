@@ -166,7 +166,9 @@ export function ContactForm({
       </div>
 
       <div className="mt-5 grid gap-1.5">
-        <Label htmlFor="contato-assunto">Assunto</Label>
+        <Label id="contato-assunto-label" htmlFor="contato-assunto">
+          Assunto
+        </Label>
         <Select
           value={form.watch("service")}
           onValueChange={(value) =>
@@ -178,6 +180,7 @@ export function ContactForm({
         >
           <SelectTrigger
             id="contato-assunto"
+            aria-labelledby="contato-assunto-label"
             aria-invalid={Boolean(errors.service)}
             className="w-full sm:w-80"
           >
@@ -233,7 +236,7 @@ export function ContactForm({
               shouldValidate: form.formState.isSubmitted,
             })
           }
-          aria-describedby="lgpd-descricao"
+          aria-labelledby="lgpd-descricao"
           className="mt-0.5"
         />
         <Label

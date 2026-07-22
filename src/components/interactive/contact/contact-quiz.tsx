@@ -135,7 +135,7 @@ export function ContactQuiz({ onComplete }: ContactQuizProps) {
             <span
               key={step}
               className={cn(
-                "size-2 rounded-[2px]",
+                "size-2 rounded-xs",
                 step <= state.step ? "bg-orange-400" : "bg-petrol-200",
               )}
             />

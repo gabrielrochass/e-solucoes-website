@@ -26,12 +26,18 @@ export function TrainingFilters({ nrs, value, onChange }: TrainingFiltersProps) 
   return (
     <div className="flex flex-wrap gap-4">
       <div className="grid gap-1.5">
-        <Label htmlFor="filtro-nr">Norma</Label>
+        <Label id="filtro-nr-label" htmlFor="filtro-nr">
+          Norma
+        </Label>
         <Select
           value={value.nr}
           onValueChange={(nr) => onChange({ ...value, nr })}
         >
-          <SelectTrigger id="filtro-nr" className="w-40">
+          <SelectTrigger
+            id="filtro-nr"
+            aria-labelledby="filtro-nr-label"
+            className="w-40"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -45,14 +51,20 @@ export function TrainingFilters({ nrs, value, onChange }: TrainingFiltersProps) 
         </Select>
       </div>
       <div className="grid gap-1.5">
-        <Label htmlFor="filtro-modalidade">Modalidade</Label>
+        <Label id="filtro-modalidade-label" htmlFor="filtro-modalidade">
+          Modalidade
+        </Label>
         <Select
           value={value.modality}
           onValueChange={(modality) =>
             onChange({ ...value, modality: modality as Modality | "all" })
           }
         >
-          <SelectTrigger id="filtro-modalidade" className="w-44">
+          <SelectTrigger
+            id="filtro-modalidade"
+            aria-labelledby="filtro-modalidade-label"
+            className="w-44"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -66,7 +78,9 @@ export function TrainingFilters({ nrs, value, onChange }: TrainingFiltersProps) 
         </Select>
       </div>
       <div className="grid gap-1.5">
-        <Label htmlFor="filtro-grau">Grau de risco (CIPA)</Label>
+        <Label id="filtro-grau-label" htmlFor="filtro-grau">
+          Grau de risco (CIPA)
+        </Label>
         <Select
           value={value.riskGrade}
           onValueChange={(riskGrade) =>
@@ -76,7 +90,11 @@ export function TrainingFilters({ nrs, value, onChange }: TrainingFiltersProps) 
             })
           }
         >
-          <SelectTrigger id="filtro-grau" className="w-40">
+          <SelectTrigger
+            id="filtro-grau"
+            aria-labelledby="filtro-grau-label"
+            className="w-40"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>

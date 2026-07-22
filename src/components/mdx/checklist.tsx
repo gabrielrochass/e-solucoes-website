@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
@@ -11,6 +11,7 @@ interface ChecklistProps {
 
 /** Checklist interativo dentro de artigos — estado local, não persiste. */
 export function Checklist({ title, items }: ChecklistProps) {
+  const baseId = useId();
   const [checked, setChecked] = useState<Set<number>>(new Set());
 
   function toggle(index: number) {
@@ -36,16 +37,18 @@ export function Checklist({ title, items }: ChecklistProps) {
       </p>
       <ul className="mt-4 space-y-3">
         {items.map((item, index) => {
-          const id = `check-${title.slice(0, 12)}-${index}`;
+          const id = `${baseId}-${index}`;
           return (
             <li key={item} className="flex items-start gap-3">
               <Checkbox
                 id={id}
+                aria-labelledby={`${id}-label`}
                 checked={checked.has(index)}
                 onCheckedChange={() => toggle(index)}
                 className="mt-0.5"
               />
               <Label
+                id={`${id}-label`}
                 htmlFor={id}
                 className="text-sm leading-relaxed font-normal text-ink"
               >
