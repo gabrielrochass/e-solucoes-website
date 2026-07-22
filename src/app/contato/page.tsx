@@ -22,7 +22,7 @@ export default function ContatoPage() {
             Três perguntas e você sai com um caminho.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
-            Responda o diagnóstico rápido — ele preenche o formulário com o
+            Responda o diagnóstico rápido. Ele preenche o formulário com o
             assunto certo. Prefere conversar direto? O WhatsApp está logo
             abaixo.
           </p>
@@ -41,9 +41,12 @@ export default function ContatoPage() {
               className="border-petrol-300 text-petrol-600 hover:bg-petrol-50 hover:text-petrol-700"
             />
           </div>
-          <p className="mt-6 text-sm text-ink-meta">
-            {siteConfig.email} · {siteConfig.address.addressLocality}/
-            {siteConfig.address.addressRegion}
+          <p className="mt-6 flex flex-wrap gap-x-6 gap-y-1 text-sm text-ink-meta">
+            <span>{siteConfig.email}</span>
+            <span>
+              {siteConfig.address.addressLocality}/
+              {siteConfig.address.addressRegion}
+            </span>
           </p>
         </div>
       </Section>

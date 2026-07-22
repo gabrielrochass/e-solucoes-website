@@ -36,7 +36,7 @@ export default function TermosUsoPage() {
         <li>conteúdo informativo sobre nossos serviços, artigos e ferramentas de diagnóstico;</li>
         <li>
           um catálogo de cursos cujo checkout acontece em plataforma EAD parceira, fora
-          deste site — as compras, pagamentos, acessos e certificados são regidos pelos
+          deste site; as compras, pagamentos, acessos e certificados são regidos pelos
           termos e políticas da própria plataforma parceira;
         </li>
         <li>canais de contato com a nossa equipe (formulário e WhatsApp).</li>
@@ -49,8 +49,8 @@ export default function TermosUsoPage() {
       <h2 className="text-h2 mt-10 text-petrol-700">3. Aviso importante sobre o conteúdo técnico</h2>
       <p className="mt-4 leading-relaxed text-ink">
         <strong>
-          Todo o conteúdo técnico publicado neste site — artigos, guias e ferramentas de
-          diagnóstico, incluindo o diagnóstico CIPA — tem caráter exclusivamente
+          Todo o conteúdo técnico publicado neste site (artigos, guias e ferramentas de
+          diagnóstico, incluindo o diagnóstico CIPA) tem caráter exclusivamente
           orientativo e educacional. Ele não substitui a avaliação técnica realizada por
           profissional habilitado em Saúde e Segurança do Trabalho, tampouco consultoria
           jurídica.
@@ -82,7 +82,7 @@ export default function TermosUsoPage() {
       </p>
       <ul className="mt-4 list-disc space-y-2 pl-6 text-ink">
         <li>
-          não garantimos disponibilidade ininterrupta — o site pode ficar temporariamente
+          não garantimos disponibilidade ininterrupta: o site pode ficar temporariamente
           fora do ar por manutenção, atualizações ou fatores fora do nosso controle;
         </li>
         <li>

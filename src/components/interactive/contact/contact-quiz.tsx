@@ -107,7 +107,7 @@ export function ContactQuiz({ onComplete }: ContactQuizProps) {
           </p>
         )}
         <p className="mt-3 text-sm text-ink-muted">
-          O formulário ao lado já está preenchido com esse assunto — é só
+          O formulário ao lado já está preenchido com esse assunto, é só
           completar seus dados.
         </p>
         <Button

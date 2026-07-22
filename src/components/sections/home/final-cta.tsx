@@ -20,7 +20,7 @@ export function FinalCta() {
             <p className="mt-4 max-w-lg text-ink-muted">
               Agende uma conversa de 30 minutos com{" "}
               {siteConfig.specialist.name}. Você sai com um diagnóstico
-              honesto do seu risco — mesmo que decida não contratar nada.
+              honesto do seu risco, mesmo que decida não contratar nada.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -36,9 +36,9 @@ export function FinalCta() {
             <ImageSlot slotId="home-especialista" ratio="3/4">
               <MeshGradient variant="petrol-orange" seed={3} />
             </ImageSlot>
-            <p className="text-eyebrow mt-3 text-ink-meta">
-              {siteConfig.specialist.name} ·{" "}
-              {siteConfig.specialist.role}
+            <p className="text-eyebrow mt-3 flex flex-wrap gap-x-3 text-ink-meta">
+              <span>{siteConfig.specialist.name}</span>
+              <span>{siteConfig.specialist.role}</span>
             </p>
           </div>
         </div>

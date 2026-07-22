@@ -42,7 +42,7 @@ const pillars: Pillar[] = [
     title: "Clínica Ocupacional",
     summary: "Exames e diagnóstico integrados ao PCMSO.",
     detail:
-      "Admissional, periódico, demissional, mudança de função e retorno ao trabalho — com resultado ágil e integração direta com DP e SST.",
+      "Admissional, periódico, demissional, mudança de função e retorno ao trabalho, com resultado ágil e integração direta com DP e SST.",
     href: "/servicos/clinica-ocupacional",
   },
   {
@@ -51,7 +51,7 @@ const pillars: Pillar[] = [
     title: "Engenharia de SST",
     summary: "PGR, PCMSO, LTCAT e laudos que sustentam auditoria.",
     detail:
-      "Programas legais dimensionados pelo risco real da operação, não por template — assinados por quem responde tecnicamente por eles.",
+      "Programas legais dimensionados pelo risco real da operação, não por template, e assinados por quem responde tecnicamente por eles.",
     href: "/servicos/engenharia-sst",
   },
   {
@@ -71,7 +71,7 @@ export function PillarsGrid() {
       <SectionHeading
         eyebrow="A solução integrada"
         title="Quatro pilares, uma operação só"
-        lead="Cada serviço funciona sozinho. Juntos, eliminam a divergência entre folha, exames e riscos — a causa mais comum de notificação no eSocial."
+        lead="Cada serviço funciona sozinho. Juntos, eliminam a divergência entre folha, exames e riscos, a causa mais comum de notificação no eSocial."
       />
       <Stagger className="mt-12 grid gap-6 sm:grid-cols-2" itemClassName="h-full">
         {pillars.map((pillar) => (

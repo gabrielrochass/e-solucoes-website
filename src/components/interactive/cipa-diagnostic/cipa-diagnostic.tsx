@@ -229,7 +229,7 @@ export function CipaDiagnostic() {
         ) : (
           <div className="flex h-full min-h-48 items-center justify-center rounded-lg border border-dashed border-neutral-300 p-card">
             <p className="max-w-xs text-center text-sm text-ink-meta">
-              Preencha os campos ao lado — o resultado mostra membros,
+              Preencha os campos ao lado: o resultado mostra membros,
               suplentes, carga de treinamento e as NRs do seu radar.
             </p>
           </div>

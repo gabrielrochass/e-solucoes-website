@@ -16,9 +16,12 @@ export function SiteFooter() {
           <p className="mt-3 text-sm leading-relaxed text-ink-muted-on-inverse">
             {siteConfig.description}
           </p>
-          <p className="mt-4 text-sm text-ink-muted-on-inverse">
-            {siteConfig.address.addressLocality}/
-            {siteConfig.address.addressRegion} · {siteConfig.email}
+          <p className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink-muted-on-inverse">
+            <span>
+              {siteConfig.address.addressLocality}/
+              {siteConfig.address.addressRegion}
+            </span>
+            <span>{siteConfig.email}</span>
           </p>
           <div className="mt-5">
             <WhatsappButton context="footer" />

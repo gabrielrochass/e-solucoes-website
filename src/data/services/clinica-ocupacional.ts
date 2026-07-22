@@ -11,14 +11,14 @@ import type { ServiceContent } from "./types";
 
 export const clinicaOcupacionalService: ServiceContent = {
   slug: "clinica-ocupacional",
-  eyebrow: "NR-7 · PCMSO",
+  eyebrow: "PCMSO pela NR-7",
   title: "Saúde ocupacional não se arquiva. Monitora-se.",
-  lead: "Clínica de medicina do trabalho em Recife: exames admissionais, periódicos, demissionais e de mudança de risco, executados dentro de um PCMSO que conversa com o seu PGR — e com o eSocial.",
+  lead: "Clínica de medicina do trabalho em Recife: exames admissionais, periódicos, demissionais e de mudança de risco, executados dentro de um PCMSO que conversa com o seu PGR e com o eSocial.",
   metaDescription:
     "Clínica de medicina ocupacional em Recife: admissional, periódico, demissional e PCMSO coordenado. Resultados integrados ao eSocial. Agende avaliação.",
   problem: {
     title: "Exame desconectado é despesa que não protege",
-    body: "Desde 1994, a NR-7 exige que os exames ocupacionais sigam um programa — o PCMSO — e, desde 2022, esse programa precisa nascer do inventário de riscos do PGR. Na prática, muitas empresas ainda tratam o exame como fila de guichê: o funcionário vai a uma clínica avulsa, o ASO volta em papel, ninguém cruza o resultado com o risco da função e o evento S-2220 é transmitido atrasado — quando é transmitido. O resultado é duplo: a empresa paga pelo exame e continua exposta, porque o documento não sustenta defesa em fiscalização nem em perícia.",
+    body: "Desde 1994, a NR-7 exige que os exames ocupacionais sigam um programa (o PCMSO) e, desde 2022, esse programa precisa nascer do inventário de riscos do PGR. Na prática, muitas empresas ainda tratam o exame como fila de guichê: o funcionário vai a uma clínica avulsa, o ASO volta em papel, ninguém cruza o resultado com o risco da função e o evento S-2220 é transmitido atrasado, quando é transmitido. O resultado é duplo: a empresa paga pelo exame e continua exposta, porque o documento não sustenta defesa em fiscalização nem em perícia.",
   },
   solutions: [
     {
@@ -35,7 +35,7 @@ export const clinicaOcupacionalService: ServiceContent = {
       summary:
         "Monitoramento contínuo da saúde do trabalhador, com controle ativo de vencimentos.",
       detail:
-        "Controlamos o vencimento de cada exame por funcionário e por risco — audiometria, espirometria, exames laboratoriais e complementares conforme o PCMSO. Você recebe o alerta antes do vencimento, não a pendência depois dele.",
+        "Controlamos o vencimento de cada exame por funcionário e por risco: audiometria, espirometria, exames laboratoriais e complementares conforme o PCMSO. Você recebe o alerta antes do vencimento, não a pendência depois dele.",
     },
     {
       icon: IconContrato,
@@ -51,7 +51,7 @@ export const clinicaOcupacionalService: ServiceContent = {
       summary:
         "Reavaliação médica sempre que a exposição muda ou o trabalhador retorna de afastamento.",
       detail:
-        "Mudou a função, o setor ou o risco? A NR-7 exige novo exame. Voltou de afastamento prolongado? Exame de retorno antes de reassumir. São os exames mais esquecidos pelas empresas — e os mais cobrados em perícia.",
+        "Mudou a função, o setor ou o risco? A NR-7 exige novo exame. Voltou de afastamento prolongado? Exame de retorno antes de reassumir. São os exames mais esquecidos pelas empresas, e os mais cobrados em perícia.",
     },
   ],
   timelineIds: [
@@ -66,7 +66,7 @@ export const clinicaOcupacionalService: ServiceContent = {
       icon: IconMatrizRisco,
       title: "PCMSO que nasce do PGR",
       description:
-        "Nossa engenharia de SST elabora o inventário de riscos; nossa clínica define os exames a partir dele. É o desenho que a NR-1 e a NR-7 exigem desde 2022 — e que exames avulsos não entregam.",
+        "Nossa engenharia de SST elabora o inventário de riscos; nossa clínica define os exames a partir dele. É o desenho que a NR-1 e a NR-7 exigem desde 2022, e que exames avulsos não entregam.",
     },
     {
       icon: IconCalendarioPrazo,
@@ -78,7 +78,7 @@ export const clinicaOcupacionalService: ServiceContent = {
       icon: IconCheckConformidade,
       title: "Coordenação médica responsável",
       description:
-        "O PCMSO tem médico responsável que conhece a sua operação, assina o programa e responde tecnicamente por ele — com guarda de prontuários conforme a norma e a LGPD.",
+        "O PCMSO tem médico responsável que conhece a sua operação, assina o programa e responde tecnicamente por ele, com guarda de prontuários conforme a norma e a LGPD.",
     },
   ],
   caseStudy: {
@@ -98,6 +98,6 @@ export const clinicaOcupacionalService: ServiceContent = {
   },
   cta: {
     title: "Quantos exames da sua equipe estão vencidos agora?",
-    body: "Agende uma avaliação gratuita do seu PCMSO. Cruzamos seus exames com os riscos de cada função e com o eSocial, e devolvemos um mapa claro do que está em dia — e do que está exposto.",
+    body: "Agende uma avaliação gratuita do seu PCMSO. Cruzamos seus exames com os riscos de cada função e com o eSocial, e devolvemos um mapa claro do que está em dia e do que está exposto.",
   },
 };

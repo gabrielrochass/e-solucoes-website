@@ -60,12 +60,18 @@ export default async function PostPage({
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <header>
-        <p className="text-eyebrow text-accent-text">
-          {post.nrs.length > 0 ? post.nrs.join(" · ") : "SST na prática"}
+        <p className="text-eyebrow flex flex-wrap gap-x-2 text-accent-text">
+          {post.nrs.length > 0 ? (
+            post.nrs.map((nr) => <span key={nr}>{nr}</span>)
+          ) : (
+            <span>SST na prática</span>
+          )}
         </p>
         <h1 className="text-display mt-4 text-petrol-700">{post.title}</h1>
-        <p className="text-eyebrow mt-5 text-ink-meta">
-          {author?.name} · {date} · {post.metadata.readingTime} min de leitura
+        <p className="text-eyebrow mt-5 flex flex-wrap gap-x-3 text-ink-meta">
+          {author?.name && <span>{author.name}</span>}
+          <span>{date}</span>
+          <span>{post.metadata.readingTime} min de leitura</span>
         </p>
       </header>
 

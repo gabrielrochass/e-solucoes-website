@@ -221,9 +221,11 @@ export function TrainingComparisonTable({
             <p className="mt-3 font-semibold text-petrol-700">
               {training.title}
             </p>
-            <p className="text-eyebrow mt-1 text-ink-meta">
-              {training.hours}h ·{" "}
-              {training.modalities.map((m) => modalityLabels[m]).join(" / ")}
+            <p className="text-eyebrow mt-1 flex flex-wrap gap-x-3 text-ink-meta">
+              <span>{training.hours}h</span>
+              <span>
+                {training.modalities.map((m) => modalityLabels[m]).join(" / ")}
+              </span>
             </p>
             <p className="mt-2 text-sm text-ink-muted">
               {training.shortDescription}

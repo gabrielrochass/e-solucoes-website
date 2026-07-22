@@ -10,14 +10,14 @@ import type { ServiceContent } from "./types";
 
 export const departamentoPessoalService: ServiceContent = {
   slug: "departamento-pessoal",
-  eyebrow: "ESOCIAL · FOLHA",
+  eyebrow: "eSocial e folha",
   title: "Folha não se confere depois. Nasce certa.",
   lead: "Terceirização de departamento pessoal para empresas de Recife e região: folha, eSocial, admissões e desligamentos operados por quem também responde pela sua saúde ocupacional.",
   metaDescription:
     "Departamento pessoal em Recife: folha de pagamento, eSocial e admissões sem retrabalho nem multa. Integrado à saúde ocupacional. Peça um diagnóstico.",
   problem: {
     title: "O eSocial não espera o fechamento da sua planilha",
-    body: "Desde 2021, os eventos de SST — S-2210, S-2220 e S-2240 — entraram no eSocial, e cada admissão, exame e desligamento virou um evento com prazo. Quando a folha roda em um sistema, os exames ficam com uma clínica e o eSocial com um terceiro, a informação chega atrasada ou divergente: rescisão calculada duas vezes, ASO transmitido fora do prazo, verba paga a maior que ninguém percebe. O custo não aparece em uma única multa — aparece no acumulado de retrabalho, juros e passivo trabalhista que cresce em silêncio.",
+    body: "Desde 2021, os eventos de SST (S-2210, S-2220 e S-2240) entraram no eSocial, e cada admissão, exame e desligamento virou um evento com prazo. Quando a folha roda em um sistema, os exames ficam com uma clínica e o eSocial com um terceiro, a informação chega atrasada ou divergente: rescisão calculada duas vezes, ASO transmitido fora do prazo, verba paga a maior que ninguém percebe. O custo não aparece em uma única multa, e sim no acumulado de retrabalho, juros e passivo trabalhista que cresce em silêncio.",
   },
   solutions: [
     {
@@ -26,7 +26,7 @@ export const departamentoPessoalService: ServiceContent = {
       summary:
         "Processamento mensal completo, do cálculo de proventos e descontos às guias de encargos.",
       detail:
-        "Calculamos folha, férias, 13º, adicionais e encargos com conferência antes do fechamento — não depois. Você recebe relatórios de provisão e custo por centro de resultado, e as guias saem no prazo, todos os meses.",
+        "Calculamos folha, férias, 13º, adicionais e encargos com conferência antes do fechamento, não depois. Você recebe relatórios de provisão e custo por centro de resultado, e as guias saem no prazo, todos os meses.",
     },
     {
       icon: IconRelogioPonto,
@@ -34,7 +34,7 @@ export const departamentoPessoalService: ServiceContent = {
       summary:
         "Transmissão e monitoramento de todos os eventos trabalhistas e de SST, dentro do prazo legal.",
       detail:
-        "Acompanhamos o calendário de cada evento — de S-2200 a S-2299, incluindo os eventos de SST — e tratamos as pendências de retorno antes que virem inconsistência. Como também executamos os exames ocupacionais, o dado nasce no mesmo fluxo que o transmite.",
+        "Acompanhamos o calendário de cada evento (de S-2200 a S-2299, incluindo os eventos de SST) e tratamos as pendências de retorno antes que virem inconsistência. Como também executamos os exames ocupacionais, o dado nasce no mesmo fluxo que o transmite.",
     },
     {
       icon: IconContrato,
@@ -50,7 +50,7 @@ export const departamentoPessoalService: ServiceContent = {
       summary:
         "Orientação preventiva para decisões do dia a dia: jornada, adicionais, contratos e convenções.",
       detail:
-        "Antes de mudar uma escala, criar uma função ou aplicar um desconto, você consulta quem conhece a legislação e a sua convenção coletiva. Decisão orientada custa menos que reclamatória — e deixa rastro documental para a defesa, se ela vier.",
+        "Antes de mudar uma escala, criar uma função ou aplicar um desconto, você consulta quem conhece a legislação e a sua convenção coletiva. Decisão orientada custa menos que reclamatória, e deixa rastro documental para a defesa, se ela vier.",
     },
   ],
   timelineIds: [
@@ -70,7 +70,7 @@ export const departamentoPessoalService: ServiceContent = {
       icon: IconCalendarioPrazo,
       title: "Calendário de obrigações monitorado",
       description:
-        "Cada evento do eSocial tem prazo — e cada prazo tem responsável. Monitoramos vencimentos de forma contínua, para que a sua empresa não descubra a pendência na notificação.",
+        "Cada evento do eSocial tem prazo, e cada prazo tem responsável. Monitoramos vencimentos de forma contínua, para que a sua empresa não descubra a pendência na notificação.",
     },
     {
       icon: IconCheckConformidade,
@@ -91,6 +91,6 @@ export const departamentoPessoalService: ServiceContent = {
   },
   cta: {
     title: "Quanto custa o retrabalho da sua folha hoje?",
-    body: "Solicite um diagnóstico gratuito da sua rotina de departamento pessoal. Analisamos folha, eSocial e processos de admissão e desligamento, e apontamos onde está o risco — antes da fiscalização apontar.",
+    body: "Solicite um diagnóstico gratuito da sua rotina de departamento pessoal. Analisamos folha, eSocial e processos de admissão e desligamento, e apontamos onde está o risco, antes da fiscalização apontar.",
   },
 };

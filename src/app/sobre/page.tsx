@@ -12,6 +12,8 @@ import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { RiskMatrixPattern } from "@/components/illustrations/risk-matrix-pattern";
+import { CardFan } from "@/components/motion/card-fan";
+import { Entrance, EntranceItem } from "@/components/motion/entrance";
 import { Reveal } from "@/components/motion/reveal";
 import {
   ScrollTimeline,
@@ -54,7 +56,7 @@ const methodEntries: ScrollTimelineEntry[] = [
       <div>
         <p className="leading-relaxed text-ink">
           Mapeamos o que existe: documentos, exames, folha, prazos. Sem
-          julgamento — só o retrato honesto de onde a empresa está.
+          julgamento, só o retrato honesto de onde a empresa está.
         </p>
         <StepBullets
           items={[
@@ -104,7 +106,7 @@ const methodEntries: ScrollTimelineEntry[] = [
     content: (
       <div>
         <p className="leading-relaxed text-ink">
-          PGR, PCMSO, exames e eSocial saem da mesma operação — os dados batem
+          PGR, PCMSO, exames e eSocial saem da mesma operação, e os dados batem
           entre si por construção.
         </p>
         <StepBullets
@@ -151,30 +153,58 @@ export default function SobrePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-surface-inverse text-ink-on-inverse">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-24 -top-12 hidden opacity-50 lg:block"
-        >
-          <RiskMatrixPattern
-            tone="dark"
-            rows={5}
-            cols={5}
-            litCells={[{ x: 2, y: 2, level: "medium" }]}
-            className="h-auto w-96"
-          />
-        </div>
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <p className="text-eyebrow text-petrol-300">Sobre a E-Soluções</p>
-          <h1 className="text-display mt-4 max-w-2xl text-white">
-            Conformidade não é papelada.{" "}
-            <span className="text-accent-on-inverse">É engenharia.</span>
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
-            Nascemos da constatação de que folha, exames e riscos viviam em
-            três fornecedores que não se falavam — e de que era exatamente
-            nessa fresta que moravam as multas. A E-Soluções existe para
-            fechar essa fresta.
-          </p>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12">
+          <Entrance className="lg:col-span-6">
+            <EntranceItem>
+              <p className="text-eyebrow text-petrol-300">Sobre a E-Soluções</p>
+            </EntranceItem>
+            <EntranceItem eager>
+              <h1 className="text-display mt-4 text-white">
+                Conformidade não é papelada.{" "}
+                <span className="text-accent-on-inverse">É engenharia.</span>
+              </h1>
+            </EntranceItem>
+            <EntranceItem>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
+                Nascemos da constatação de que folha, exames e riscos viviam
+                em três fornecedores que não se falavam, e de que era
+                exatamente nessa fresta que moravam as multas. A E-Soluções
+                existe para fechar essa fresta.
+              </p>
+            </EntranceItem>
+          </Entrance>
+
+          <div className="lg:col-span-6">
+            <CardFan
+              className="mx-auto max-w-md"
+              cards={[
+                <ImageSlot
+                  key="1"
+                  slotId="sobre-hero-1"
+                  ratio="4/5"
+                  className="h-full bg-petrol-900"
+                >
+                  <HexPattern tone="dark" />
+                </ImageSlot>,
+                <ImageSlot
+                  key="2"
+                  slotId="sobre-hero-2"
+                  ratio="4/5"
+                  className="h-full bg-petrol-900"
+                >
+                  <MeshGradient variant="petrol-orange" seed={2} />
+                </ImageSlot>,
+                <ImageSlot
+                  key="3"
+                  slotId="sobre-hero-3"
+                  ratio="4/5"
+                  className="h-full bg-petrol-900"
+                >
+                  <DocLinesPattern tone="dark" />
+                </ImageSlot>,
+              ]}
+            />
+          </div>
         </div>
       </section>
 
@@ -189,7 +219,7 @@ export default function SobrePage() {
         <SectionHeading
           eyebrow="A tese"
           title="Um dado só, três usos"
-          lead="O mesmo risco que entra no PGR dimensiona o exame do PCMSO e alimenta o evento de SST no eSocial. Quando isso acontece na mesma operação, a divergência — a causa nº 1 de notificação — simplesmente não tem onde nascer."
+          lead="O mesmo risco que entra no PGR dimensiona o exame do PCMSO e alimenta o evento de SST no eSocial. Quando isso acontece na mesma operação, a divergência, que é a causa nº 1 de notificação, simplesmente não tem onde nascer."
         />
         <Stagger className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
           {pillars.map((pillar) => (
@@ -210,7 +240,7 @@ export default function SobrePage() {
         <SectionHeading
           eyebrow="Como trabalhamos"
           title="Método, não pacote"
-          lead="Quatro fases, sempre nesta ordem — a linha abaixo acompanha seu scroll pelo caminho completo."
+          lead="Quatro fases, sempre nesta ordem. A linha abaixo acompanha seu scroll pelo caminho completo."
         />
         <div className="mt-14">
           <ScrollTimeline entries={methodEntries} />

@@ -25,6 +25,8 @@ placeholder projetado (ilustração SVG da marca) até o asset chegar.
 | `autor-adna` | Blog / bio de autor | 160×160 | 1/1 | Avatar de Adna Correia | Recorte quadrado do retrato principal |
 | `autor-equipe` | Blog / bio de autor | 160×160 | 1/1 | Marca/foto da equipe | Pode ser monograma da marca |
 | `blog-cover-<slug>` | Cards e capas do blog | 1280×720 | 16/9 | Capa por artigo (opcional — placeholder por domínio já cobre) | Infográfico ou foto temática; adicionar via frontmatter `cover` |
+| `servico-<slug>-hero-1` e `-3` | Hero de cada serviço (leque de cards, posições laterais) | 480×600 | 4/5 | 2 fotos verticais do domínio do serviço (ver IMAGE-SOURCES.md) | Retrato/ambiente real; card central do leque é o ícone, não é foto |
+| `sobre-hero-1..3` | Hero do /sobre (leque de 3 cards) | 480×600 | 4/5 | Equipe, clínica e ambiente de trabalho | Fotos próprias da E-Soluções, coerentes entre si |
 
 ## Assets pendentes fora de slots
 

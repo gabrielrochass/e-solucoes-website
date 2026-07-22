@@ -46,8 +46,10 @@ export function PostCard({ post }: { post: Post }) {
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
           {post.description}
         </p>
-        <p className="text-eyebrow mt-4 text-ink-meta">
-          {author?.name} · {date} · {post.metadata.readingTime} min
+        <p className="text-eyebrow mt-4 flex flex-wrap gap-x-3 text-ink-meta">
+          <span>{author?.name}</span>
+          <span>{date}</span>
+          <span>{post.metadata.readingTime} min</span>
         </p>
       </div>
     </article>

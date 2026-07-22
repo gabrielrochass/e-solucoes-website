@@ -6,7 +6,7 @@ export const contactServiceOptions = [
   { value: "engenharia-sst", label: "Engenharia de SST" },
   { value: "complementares", label: "Serviços Complementares" },
   { value: "treinamentos", label: "Treinamentos NR" },
-  { value: "nao-sei", label: "Ainda não sei — quero um diagnóstico" },
+  { value: "nao-sei", label: "Ainda não sei, quero um diagnóstico" },
 ] as const;
 
 export type ContactService = (typeof contactServiceOptions)[number]["value"];

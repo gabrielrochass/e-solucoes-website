@@ -83,7 +83,7 @@ export function evaluateCipa(
     periodicity: {
       cipaTraining:
         "Treinamento a cada mandato; conclusão antes da posse dos membros.",
-      pcmso: "Exames conforme PCMSO — periodicidade definida pelo médico responsável a partir dos riscos.",
+      pcmso: "Exames conforme PCMSO, com periodicidade definida pelo médico responsável a partir dos riscos.",
     },
   };
 }

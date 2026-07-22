@@ -17,6 +17,7 @@ import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { RiskMatrixPattern } from "@/components/illustrations/risk-matrix-pattern";
+import { CardFan } from "@/components/motion/card-fan";
 import { NumberTicker } from "@/components/motion/number-ticker";
 import { ScrollTimeline } from "@/components/motion/scroll-timeline";
 import { TextReveal } from "@/components/motion/text-reveal";
@@ -98,7 +99,7 @@ function Section({
 export default function StyleguidePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <p className="text-eyebrow text-accent-text">Interno · não indexada</p>
+      <p className="text-eyebrow text-accent-text">Página interna, não indexada</p>
       <h1 className="text-display mt-2 text-petrol-700">Styleguide</h1>
 
       <Section title="Cores">
@@ -123,14 +124,14 @@ export default function StyleguidePage() {
 
       <Section title="Tipografia">
         <div className="space-y-4">
-          <p className="text-display text-petrol-700">Display — tese do hero</p>
-          <p className="text-h2 text-petrol-700">H2 — título de seção</p>
-          <p className="text-h3 text-petrol-700">H3 — título de card</p>
+          <p className="text-display text-petrol-700">Display: tese do hero</p>
+          <p className="text-h2 text-petrol-700">H2: título de seção</p>
+          <p className="text-h3 text-petrol-700">H3: título de card</p>
           <p className="text-body max-w-prose">
-            Body 16px, line-height 1.4 — texto corrido do site inteiro.
+            Body 16px, line-height 1.4: texto corrido do site inteiro.
           </p>
           <p className="text-eyebrow text-ink-meta">
-            NR-5 · Eyebrow meta uppercase
+            Eyebrow meta uppercase, ex.: NR-5
           </p>
           <p className="text-stat tabular-stat text-petrol-700">
             850<span className="text-h3 text-orange-700">+</span>
@@ -218,6 +219,39 @@ export default function StyleguidePage() {
         />
 
         <p className="text-eyebrow mt-10 mb-6 text-ink-meta">
+          Card Fan (leque de entrada, hero das páginas)
+        </p>
+        <div className="rounded-lg bg-surface-inverse p-8">
+          <CardFan
+            className="mx-auto max-w-md"
+            cards={[
+              <ImageSlot
+                key="1"
+                slotId="styleguide-fan-1"
+                ratio="4/5"
+                className="h-full bg-petrol-900"
+              >
+                <HexPattern tone="dark" />
+              </ImageSlot>,
+              <div
+                key="2"
+                className="flex h-full w-full items-center justify-center bg-petrol-800 text-accent-on-inverse"
+              >
+                <Icons.IconCapacete size={32} />
+              </div>,
+              <ImageSlot
+                key="3"
+                slotId="styleguide-fan-3"
+                ratio="4/5"
+                className="h-full bg-petrol-900"
+              >
+                <MeshGradient variant="petrol-orange" seed={2} />
+              </ImageSlot>,
+            ]}
+          />
+        </div>
+
+        <p className="text-eyebrow mt-10 mb-6 text-ink-meta">
           Scroll Timeline (beam preenche com o scroll)
         </p>
         <ScrollTimeline
@@ -226,7 +260,7 @@ export default function StyleguidePage() {
               title: "Fase 1",
               content: (
                 <p className="text-sm leading-relaxed text-ink-muted">
-                  Conteúdo da primeira entrada — role para ver o beam
+                  Conteúdo da primeira entrada: role para ver o beam
                   preencher o trilho à esquerda.
                 </p>
               ),
@@ -252,7 +286,7 @@ export default function StyleguidePage() {
               <Icons.IconCapacete size={24} />
             </CardIcon>
             <CardTitle className="mt-3">Trabalho em Altura</CardTitle>
-            <CardMeta className="mt-1">8h · Presencial</CardMeta>
+            <CardMeta className="mt-1">8h, presencial</CardMeta>
             <CardBody className="mt-3">
               Capacitação obrigatória para atividades acima de 2 metros.
             </CardBody>
@@ -282,7 +316,7 @@ export default function StyleguidePage() {
               <Card>
                 <CardBadge nr="NR-10" nivel="medium" />
                 <CardTitle className="mt-3">Segurança Elétrica</CardTitle>
-                <CardMeta className="mt-1">40h · Semipresencial</CardMeta>
+                <CardMeta className="mt-1">40h, semipresencial</CardMeta>
                 <CardBody className="mt-3 pb-10">
                   Passe o mouse ou foque para ver o detalhe.
                 </CardBody>

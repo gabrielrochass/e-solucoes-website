@@ -18,7 +18,7 @@ export const legislationEvents: LegislationEvent[] = [
   {
     id: "pcmso-ppra-1994",
     year: 1994,
-    nr: "NR-7 · NR-9",
+    nr: "NR-7 e NR-9",
     title: "PCMSO e PPRA tornam-se obrigatórios",
     summary:
       "A nova redação da NR-7 institui o PCMSO, com exames admissional, periódico, de retorno, de mudança de função e demissional. A NR-9 cria o PPRA, ligando pela primeira vez o controle médico à avaliação de riscos ambientais.",
@@ -99,7 +99,7 @@ export const legislationEvents: LegislationEvent[] = [
   {
     id: "vigencia-pgr-nova-nr7-2022",
     year: 2022,
-    nr: "NR-1 · NR-7",
+    nr: "NR-1 e NR-7",
     title: "PGR substitui o PPRA e o PCMSO é realinhado",
     summary:
       "Entram em vigor a nova NR-1 e a nova NR-7: o PPRA deixa de existir, o PGR passa a valer e o PCMSO deve ser elaborado a partir do inventário de riscos. Programas desconectados entre si deixam de ser aceitáveis.",

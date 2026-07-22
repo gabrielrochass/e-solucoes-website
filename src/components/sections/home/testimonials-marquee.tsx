@@ -14,8 +14,9 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       <blockquote className="text-sm leading-relaxed text-ink">
         “{testimonial.quote}”
       </blockquote>
-      <figcaption className="text-eyebrow mt-4 text-ink-meta">
-        {testimonial.role} · {testimonial.segment}
+      <figcaption className="text-eyebrow mt-4 flex flex-wrap gap-x-3 text-ink-meta">
+        <span>{testimonial.role}</span>
+        <span>{testimonial.segment}</span>
       </figcaption>
     </figure>
   );

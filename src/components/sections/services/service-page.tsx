@@ -5,6 +5,7 @@ import { IconPerigoLosango } from "@/components/icons";
 import { ImageSlot } from "@/components/illustrations/image-slot";
 import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { LegislationTimeline } from "@/components/interactive/legislation-timeline/legislation-timeline";
+import { ServiceHero } from "@/components/sections/services/service-hero";
 import { SolutionSticky } from "@/components/sections/services/solution-sticky";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { Reveal } from "@/components/motion/reveal";
@@ -23,27 +24,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-inverse text-ink-on-inverse">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <p className="text-eyebrow text-petrol-300">{content.eyebrow}</p>
-          <h1 className="text-display mt-4 max-w-2xl text-white">
-            {content.title}
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
-            {content.lead}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange-400 text-ink hover:bg-orange-500"
-            >
-              <Link href="/contato">Solicitar orçamento</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <ServiceHero content={content} />
 
       {/* Problema */}
       <Section>
@@ -87,7 +68,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           <SectionHeading
             eyebrow="Contexto legal"
             title="A legislação não espera"
-            lead="Os marcos que definem a urgência deste serviço — e o que muda para a sua operação."
+            lead="Os marcos que definem a urgência deste serviço e o que muda para a sua operação."
           />
           <div className="mt-12">
             <LegislationTimeline events={events} />
@@ -131,7 +112,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
               </ImageSlot>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
-              <CardMeta>Case · resultados reais</CardMeta>
+              <CardMeta>Case de resultado real</CardMeta>
               <h2 className="text-h2 mt-3 text-petrol-700">
                 {content.caseStudy.headline}
               </h2>

@@ -17,7 +17,7 @@ export default function PoliticaPrivacidadePage() {
       <p className="mt-4 leading-relaxed text-ink">
         Esta Política de Privacidade explica, de forma direta, quais dados pessoais são
         tratados quando você usa este site e como eles são protegidos. Ela foi elaborada em
-        conformidade com a Lei Geral de Proteção de Dados Pessoais — LGPD (Lei nº
+        conformidade com a Lei Geral de Proteção de Dados Pessoais, a LGPD (Lei nº
         13.709/2018).
       </p>
 
@@ -38,7 +38,7 @@ export default function PoliticaPrivacidadePage() {
       <h3 className="mt-8 font-semibold text-petrol-700">2.1 Formulário de contato</h3>
       <p className="mt-4 leading-relaxed text-ink">
         Ao preencher o formulário de contato, você nos informa: nome, empresa, e-mail,
-        telefone, assunto e mensagem — e, opcionalmente, um resumo do diagnóstico gerado no
+        telefone, assunto e mensagem e, opcionalmente, um resumo do diagnóstico gerado no
         site. Esses dados são enviados por e-mail à nossa equipe e usados exclusivamente
         para responder à sua solicitação. O envio só acontece após você marcar a caixa de
         consentimento, e registramos a data e hora desse aceite. Base legal: consentimento
@@ -83,7 +83,7 @@ export default function PoliticaPrivacidadePage() {
         </li>
         <li>
           Para revogar ou alterar sua escolha, basta limpar os dados deste site no seu
-          navegador (cookies e dados de sites) — o banner será exibido novamente na próxima
+          navegador (cookies e dados de sites): o banner será exibido novamente na próxima
           visita.
         </li>
       </ul>
@@ -104,7 +104,7 @@ export default function PoliticaPrivacidadePage() {
         </li>
         <li>
           A plataforma EAD parceira trata os dados de compra de cursos sob sua própria
-          política de privacidade — esse tratamento acontece fora deste site.
+          política de privacidade. Esse tratamento acontece fora deste site.
         </li>
       </ul>
 
@@ -112,7 +112,7 @@ export default function PoliticaPrivacidadePage() {
       <p className="mt-4 leading-relaxed text-ink">
         As mensagens recebidas pelo formulário de contato são mantidas pelo tempo necessário
         para atender à sua solicitação e cumprir obrigações legais, pelo prazo de
-        [VALIDAR prazo de retenção — sugestão: 12 meses] a contar do último contato. Após
+        [VALIDAR prazo de retenção; sugestão: 12 meses] a contar do último contato. Após
         esse período, os dados são eliminados ou anonimizados, salvo obrigação legal de
         guarda por prazo maior.
       </p>
@@ -142,7 +142,7 @@ export default function PoliticaPrivacidadePage() {
       <p className="mt-4 leading-relaxed text-ink">
         Adotamos medidas técnicas e organizacionais razoáveis para proteger os dados
         pessoais tratados por meio deste site contra acessos não autorizados, perda ou
-        alteração — incluindo tráfego criptografado (HTTPS) e acesso restrito às mensagens
+        alteração, incluindo tráfego criptografado (HTTPS) e acesso restrito às mensagens
         recebidas. Nenhum sistema é absolutamente seguro, mas trabalhamos para reduzir os
         riscos ao mínimo.
       </p>

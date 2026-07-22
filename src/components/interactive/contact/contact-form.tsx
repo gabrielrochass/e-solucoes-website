@@ -85,7 +85,7 @@ export function ContactForm({
       >
         <p className="font-semibold text-risk-low-fg">Mensagem enviada.</p>
         <p className="mt-2 text-sm leading-relaxed text-ink">
-          Respondemos em até 1 dia útil. Se for urgente, chame no WhatsApp —
+          Respondemos em até 1 dia útil. Se for urgente, chame no WhatsApp:
           o botão está logo abaixo do formulário.
         </p>
       </div>

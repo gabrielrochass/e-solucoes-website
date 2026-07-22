@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export interface ImageSlotProps {
   /** Referencia a entrada correspondente em ASSETS.md */
   slotId: string;
-  ratio: "16/9" | "4/3" | "3/4" | "1/1";
+  ratio: "16/9" | "4/3" | "3/4" | "4/5" | "1/1";
   className?: string;
   /** O placeholder visual (uma das ilustrações) */
   children: ReactNode;

@@ -31,7 +31,7 @@ const problems: Problem[] = [
     nivel: "medium",
     icon: <IconRelogioPonto size={24} />,
     title: "Compliance consome tempo que a operação não tem",
-    body: "Normas Regulamentadoras mudam com frequência. Acompanhar portarias, prazos de laudo e periodicidade de exame vira trabalho em tempo integral — que quase nunca é o seu negócio.",
+    body: "Normas Regulamentadoras mudam com frequência. Acompanhar portarias, prazos de laudo e periodicidade de exame vira trabalho em tempo integral, e ele quase nunca é o seu negócio.",
     cta: { label: "Como resolvemos", href: "/servicos/engenharia-sst" },
   },
   {
@@ -47,7 +47,7 @@ const problems: Problem[] = [
     nivel: "medium",
     icon: <IconFolhaPagamento size={24} />,
     title: "DP e SST que não conversam geram retrabalho",
-    body: "O eSocial exige folha, exames e riscos consistentes entre si. Quando cada área vive em um fornecedor, a divergência aparece — em forma de notificação.",
+    body: "O eSocial exige folha, exames e riscos consistentes entre si. Quando cada área vive em um fornecedor, a divergência aparece em forma de notificação.",
     cta: { label: "Entender o diferencial", href: "/sobre" },
   },
 ];

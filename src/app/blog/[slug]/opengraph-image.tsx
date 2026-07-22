@@ -66,7 +66,7 @@ export default async function OpengraphImage({
             fontWeight: 600,
           }}
         >
-          E-Soluções · Blog
+          Blog da E-Soluções
         </div>
         <div
           style={{

@@ -24,8 +24,9 @@ export function RelatedTrainings({ trainings }: { trainings: Training[] }) {
               <CardBadge nr={training.nr} />
               <div>
                 <p className="font-medium text-white">{training.title}</p>
-                <p className="text-eyebrow mt-0.5 text-petrol-300">
-                  {training.hours}h · {formatPrice(training.priceCents)}
+                <p className="text-eyebrow mt-0.5 flex flex-wrap gap-x-3 text-petrol-300">
+                  <span>{training.hours}h</span>
+                  <span>{formatPrice(training.priceCents)}</span>
                 </p>
               </div>
             </div>

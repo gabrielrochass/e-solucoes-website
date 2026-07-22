@@ -95,8 +95,8 @@ export function ResultPanel({ result }: { result: CipaResult }) {
         </div>
         <p className="mt-4 text-xs leading-relaxed text-petrol-300">
           Estimativa orientativa com base na NR-5 vigente. O dimensionamento
-          oficial depende do CNAE exato da empresa — não substitui avaliação
-          técnica.
+          oficial depende do CNAE exato da empresa, e este resultado não
+          substitui avaliação técnica.
         </p>
       </div>
     </div>

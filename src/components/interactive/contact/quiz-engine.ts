@@ -37,7 +37,7 @@ export function recommendFromQuiz(answers: QuizAnswers): QuizRecommendation {
 
   const sizeNote =
     answers.size === "1-19"
-      ? "Com menos de 20 pessoas, boa parte das exigências simplifica — mas não desaparece."
+      ? "Com menos de 20 pessoas, boa parte das exigências simplifica, mas não desaparece."
       : answers.size === "100+"
         ? "No seu porte, a integração entre folha, exames e riscos é o que evita notificação."
         : "";

@@ -11,14 +11,14 @@ import type { ServiceContent } from "./types";
 
 export const complementaresService: ServiceContent = {
   slug: "complementares",
-  eyebrow: "PERÍCIAS · APOIO TÉCNICO",
+  eyebrow: "Perícias e apoio técnico",
   title: "Perícia não se improvisa. Prepara-se.",
   lead: "Perícias judiciais, assistência técnica em processos trabalhistas, laudos específicos e terceirização de profissionais de SST para empresas de Recife e região que precisam de profundidade técnica sob demanda.",
   metaDescription:
     "Perícia judicial, assistência técnica, laudos de SST e terceirização de profissionais em Recife. Apoio técnico a processos trabalhistas. Fale conosco.",
   problem: {
     title: "Na perícia, quem não tem laudo aceita o laudo do outro",
-    body: "Adicional de insalubridade pode chegar a 40% e o de periculosidade a 30% — multiplicados por anos de contrato e por reflexos, viram condenações que comprometem o caixa. Quando a empresa chega à perícia sem laudos próprios, sem medições e sem assistente técnico, o processo é decidido sobre a única versão técnica disponível: a da outra parte. E há o passivo silencioso: funções sem laudo, agentes nocivos sem LTCAT, demandas pontuais de SST sem profissional dedicado. É exatamente a lacuna que este serviço fecha.",
+    body: "Adicional de insalubridade pode chegar a 40% e o de periculosidade a 30%. Multiplicados por anos de contrato e por reflexos, viram condenações que comprometem o caixa. Quando a empresa chega à perícia sem laudos próprios, sem medições e sem assistente técnico, o processo é decidido sobre a única versão técnica disponível: a da outra parte. E há o passivo silencioso: funções sem laudo, agentes nocivos sem LTCAT, demandas pontuais de SST sem profissional dedicado. É exatamente a lacuna que este serviço fecha.",
   },
   solutions: [
     {
@@ -51,7 +51,7 @@ export const complementaresService: ServiceContent = {
       summary:
         "Avaliações técnicas pontuais: insalubridade, periculosidade, ergonomia e demandas de norma.",
       detail:
-        "Elaboramos laudos sob demanda para situações específicas — enquadramento de adicionais, análise ergonômica, avaliações ambientais quantitativas e respostas técnicas a notificações. Cada laudo sai com medição rastreável e responsável habilitado.",
+        "Elaboramos laudos sob demanda para situações específicas: enquadramento de adicionais, análise ergonômica, avaliações ambientais quantitativas e respostas técnicas a notificações. Cada laudo sai com medição rastreável e responsável habilitado.",
     },
   ],
   timelineIds: [
@@ -65,13 +65,13 @@ export const complementaresService: ServiceContent = {
       icon: IconMatrizRisco,
       title: "Visão completa do passivo",
       description:
-        "Quem elabora PGR, PCMSO e LTCAT no dia a dia sabe onde as perícias costumam encontrar fragilidade. Levamos essa visão de gestão para dentro do processo — e do processo de volta para a prevenção.",
+        "Quem elabora PGR, PCMSO e LTCAT no dia a dia sabe onde as perícias costumam encontrar fragilidade. Levamos essa visão de gestão para dentro do processo, e do processo de volta para a prevenção.",
     },
     {
       icon: IconCalendarioPrazo,
       title: "Prazos processuais respeitados",
       description:
-        "Quesito, diligência e parecer têm janelas que não se reabrem. Trabalhamos alinhados ao calendário do processo e ao seu jurídico, com entregas dentro do prazo — sempre.",
+        "Quesito, diligência e parecer têm janelas que não se reabrem. Trabalhamos alinhados ao calendário do processo e ao seu jurídico, com entregas dentro do prazo, sempre.",
     },
     {
       icon: IconCheckConformidade,
@@ -87,12 +87,12 @@ export const complementaresService: ServiceContent = {
     context:
       "A empresa acumulava reclamatórias com pedidos de insalubridade e periculosidade e chegava às perícias sem laudos próprios nem assistente técnico. As condenações vinham baseadas exclusivamente nos laudos da parte contrária.",
     solution:
-      "Passamos a atuar como assistentes técnicos nos processos em curso — quesitos, acompanhamento de diligências e pareceres divergentes — e elaboramos os laudos de insalubridade e periculosidade das funções mais demandadas, fechando a lacuna na origem.",
+      "Passamos a atuar como assistentes técnicos nos processos em curso (quesitos, acompanhamento de diligências e pareceres divergentes) e elaboramos os laudos de insalubridade e periculosidade das funções mais demandadas, fechando a lacuna na origem.",
     result:
       "Em doze meses, a provisão associada a adicionais caiu cerca de 30%, com pedidos afastados ou reenquadrados nas perícias acompanhadas. Os novos laudos passaram a orientar também o pagamento correto dos adicionais na folha.",
   },
   cta: {
     title: "Recebeu uma citação ou uma notificação? O prazo já está correndo.",
-    body: "Fale com a nossa equipe técnica. Avaliamos o processo ou a demanda, indicamos a prova técnica necessária e apresentamos orçamento objetivo — sem compromisso e no tempo que o seu prazo exige.",
+    body: "Fale com a nossa equipe técnica. Avaliamos o processo ou a demanda, indicamos a prova técnica necessária e apresentamos orçamento objetivo, sem compromisso e no tempo que o seu prazo exige.",
   },
 };
