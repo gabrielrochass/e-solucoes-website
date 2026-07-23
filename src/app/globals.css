@@ -109,7 +109,7 @@
 
   /* Spacing (base 4px = --spacing padrão do Tailwind) */
   --spacing-card: 1.5rem;
-  --spacing-section: clamp(4rem, 2.8rem + 4vw, 6rem);
+  --spacing-section: clamp(3rem, 2.2rem + 2.4vw, 4.5rem);
 
   /* Badges NR quase retos = técnico */
   --radius-badge: 0.25rem;

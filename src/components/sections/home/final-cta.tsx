@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/sections/shared/section";
@@ -34,7 +33,9 @@ export function FinalCta() {
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <ImageSlot slotId="home-especialista" ratio="3/4">
-              <MeshGradient variant="petrol-orange" seed={3} />
+              <div className="flex size-full items-center justify-center bg-petrol-900 text-center">
+                <span className="text-eyebrow text-petrol-300 px-4">Foto da especialista<br />(sessão própria)</span>
+              </div>
             </ImageSlot>
             <p className="text-eyebrow mt-3 flex flex-wrap gap-x-3 text-ink-meta">
               <span>{siteConfig.specialist.name}</span>

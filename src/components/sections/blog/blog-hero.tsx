@@ -1,18 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CardBadge } from "@/components/cards/card";
-import { DocLinesPattern } from "@/components/illustrations/doc-lines-pattern";
-import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
+import { Photo } from "@/components/photo/photo";
 import { Entrance, EntranceItem } from "@/components/motion/entrance";
+import { blogCoverPhoto } from "@/lib/photos";
 import { getAuthor, type Post } from "@/lib/posts";
 
 function FeaturedCover({ post }: { post: Post }) {
-  if (post.tags.includes("clínica ocupacional")) return <HexPattern tone="light" />;
-  if (post.tags.includes("departamento pessoal")) return <DocLinesPattern tone="light" />;
-  const seed = ((post.slug.length % 3) + 1) as 1 | 2 | 3;
-  return <MeshGradient variant="petrol-orange" seed={seed} />;
+  return <Photo photo={blogCoverPhoto(post.tags)} treatment="grade" sizes="(min-width: 1024px) 55vw, 100vw" />;
 }
 
 /**
@@ -32,7 +28,7 @@ export function BlogHero({ featured }: { featured?: Post }) {
     <section className="border-b border-neutral-200 bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <Entrance>
-          <EntranceItem>
+          <EntranceItem eager>
             <p className="text-eyebrow text-accent-text">SST na prática</p>
           </EntranceItem>
           <EntranceItem eager>

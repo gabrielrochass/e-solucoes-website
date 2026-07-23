@@ -1,21 +1,13 @@
 import Link from "next/link";
 import { CardBadge } from "@/components/cards/card";
-import { DocLinesPattern } from "@/components/illustrations/doc-lines-pattern";
-import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
+import { Photo } from "@/components/photo/photo";
+import { blogCoverPhoto } from "@/lib/photos";
 import { getAuthor, type Post } from "@/lib/posts";
 
-/** Placeholder de capa determinístico por tag dominante do post. */
+/** Capa fotográfica por domínio do post. */
 function CoverPlaceholder({ post }: { post: Post }) {
-  if (post.tags.includes("clínica ocupacional")) {
-    return <HexPattern tone="light" />;
-  }
-  if (post.tags.includes("departamento pessoal")) {
-    return <DocLinesPattern tone="light" />;
-  }
-  const seed = ((post.slug.length % 3) + 1) as 1 | 2 | 3;
-  return <MeshGradient seed={seed} />;
+  return <Photo photo={blogCoverPhoto(post.tags)} treatment="grade" sizes="(min-width: 1024px) 30vw, 100vw" />;
 }
 
 export function PostCard({ post }: { post: Post }) {

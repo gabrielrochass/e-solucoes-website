@@ -49,7 +49,8 @@
       "Read(//c/Users/gabri/**)",
       "Read(//c//**)",
       "Bash(rm src/__smoke.test.ts)",
-      "Bash(echo \"tsc exit: $?\")"
+      "Bash(echo \"tsc exit: $?\")",
+      "Bash(grep -v \"//\")"
     ]
   }
 }

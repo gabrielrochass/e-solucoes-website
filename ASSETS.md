@@ -14,6 +14,13 @@ placeholder projetado (ilustração SVG da marca) até o asset chegar.
    do slot não mudam.
 4. Escreva `alt` descritivo (pt-BR) — obrigatório.
 
+> **Stock interino aplicado (jul/2026):** os slots de *case* dos 4 serviços já
+> usam fotos de stock tratadas em duotone (`src/lib/photos.ts`, arquivos em
+> `public/images/photos/`, componente [`Photo`](src/components/photo/photo.tsx)).
+> São tapa-buraco de licença livre — substituir pela sessão própria quando
+> houver. Slots de pessoas reais (retrato Adna, equipe, `sobre-hero`, cases com
+> paciente/equipe identificável) **seguem placeholder** por exigirem foto própria.
+
 | slotId | Página / seção | Dimensões (1x) | Ratio | Conteúdo esperado | Direção de arte |
 | ------ | -------------- | -------------- | ----- | ----------------- | --------------- |
 | `home-especialista` | Home / CTA final | 480×640 | 3/4 | Retrato de Adna Correia | Fundo neutro claro, luz lateral suave, olhar à câmera, enquadramento busto |

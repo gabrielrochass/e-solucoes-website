@@ -11,8 +11,11 @@ import type { ServiceContent } from "./types";
 
 export const clinicaOcupacionalService: ServiceContent = {
   slug: "clinica-ocupacional",
+  heroImage: "clinica-pressao",
+  heroAnchor: "exam-status",
+  caseImage: "clinica-otoscopia",
   eyebrow: "PCMSO pela NR-7",
-  title: "Saúde ocupacional não se arquiva. Monitora-se.",
+  title: "Cada exame no prazo, cada risco no radar.",
   lead: "Clínica de medicina do trabalho em Recife: exames admissionais, periódicos, demissionais e de mudança de risco, executados dentro de um PCMSO que conversa com o seu PGR e com o eSocial.",
   metaDescription:
     "Clínica de medicina ocupacional em Recife: admissional, periódico, demissional e PCMSO coordenado. Resultados integrados ao eSocial. Agende avaliação.",

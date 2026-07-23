@@ -1,4 +1,11 @@
 import type { IconProps } from "@/components/icons";
+import type { StockPhotoKey } from "@/lib/photos";
+
+export type ServiceHeroAnchor =
+  | "timeline"
+  | "exam-status"
+  | "dp-flow"
+  | "pericia-stack";
 
 export interface ServiceSolutionCard {
   icon: React.ComponentType<IconProps>;
@@ -24,11 +31,17 @@ export interface ServiceCaseStudy {
 
 export interface ServiceContent {
   slug: string;
-  /** Eyebrow com número de norma quando aplicável: "NR-7 · PCMSO". */
+  /** Eyebrow com o número da norma quando aplicável. */
   eyebrow: string;
   title: string;
   lead: string;
   metaDescription: string;
+  /** Foto real que lidera o hero (overlay petróleo garante contraste). */
+  heroImage: StockPhotoKey;
+  /** Assinatura funcional da página, agora renderizada numa seção do meio. */
+  heroAnchor: ServiceHeroAnchor;
+  /** Foto do case (interino; slots humanos reais usam foto própria). */
+  caseImage?: StockPhotoKey;
   problem: {
     title: string;
     body: string;

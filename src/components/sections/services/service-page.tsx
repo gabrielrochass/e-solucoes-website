@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { CardIcon, CardMeta } from "@/components/cards/card";
 import { IconPerigoLosango } from "@/components/icons";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
-import { LegislationTimeline } from "@/components/interactive/legislation-timeline/legislation-timeline";
+import { Photo } from "@/components/photo/photo";
+import { ServiceAnchorSection } from "@/components/sections/services/service-anchor-section";
 import { ServiceHero } from "@/components/sections/services/service-hero";
 import { SolutionSticky } from "@/components/sections/services/solution-sticky";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
@@ -51,30 +51,22 @@ export function ServicePage({ content }: { content: ServiceContent }) {
         </Reveal>
       </Section>
 
+      {/* Âncora funcional da página (timeline / painel / fluxo / pilha) */}
+      <ServiceAnchorSection content={content} timelineEvents={events} />
+
       {/* Solução */}
-      <Section tone="tint">
+      <Section>
         <SectionHeading
           eyebrow="Como resolvemos"
           title="A solução, parte a parte"
         />
         <div className="mt-12">
-          <SolutionSticky solutions={content.solutions} />
+          <SolutionSticky
+            solutions={content.solutions}
+            photo={content.caseImage ?? content.heroImage}
+          />
         </div>
       </Section>
-
-      {/* Timeline legislação */}
-      {events.length > 0 && (
-        <Section>
-          <SectionHeading
-            eyebrow="Contexto legal"
-            title="A legislação não espera"
-            lead="Os marcos que definem a urgência deste serviço e o que muda para a sua operação."
-          />
-          <div className="mt-12">
-            <LegislationTimeline events={events} />
-          </div>
-        </Section>
-      )}
 
       {/* Diferenciais */}
       <Section tone="tint">
@@ -104,11 +96,16 @@ export function ServicePage({ content }: { content: ServiceContent }) {
         <Reveal>
           <div className="grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <ImageSlot
-                slotId={`servico-${content.slug}-case`}
-                ratio="4/3"
-              >
-                <MeshGradient seed={2} />
+              <ImageSlot slotId={`servico-${content.slug}-case`} ratio="4/3">
+                {content.caseImage ? (
+                  <Photo
+                    photo={content.caseImage}
+                    treatment="grade"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                  />
+                ) : (
+                  <div className="size-full bg-petrol-100" />
+                )}
               </ImageSlot>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">

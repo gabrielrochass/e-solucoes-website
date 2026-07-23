@@ -11,8 +11,11 @@ import type { ServiceContent } from "./types";
 
 export const complementaresService: ServiceContent = {
   slug: "complementares",
+  heroImage: "sst-trabalhador-colete",
+  heroAnchor: "pericia-stack",
+  caseImage: "clinica-prancheta",
   eyebrow: "Perícias e apoio técnico",
-  title: "Perícia não se improvisa. Prepara-se.",
+  title: "Quando o caso vira processo, o laudo decide.",
   lead: "Perícias judiciais, assistência técnica em processos trabalhistas, laudos específicos e terceirização de profissionais de SST para empresas de Recife e região que precisam de profundidade técnica sob demanda.",
   metaDescription:
     "Perícia judicial, assistência técnica, laudos de SST e terceirização de profissionais em Recife. Apoio técnico a processos trabalhistas. Fale conosco.",

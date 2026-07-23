@@ -11,6 +11,9 @@ import type { ServiceContent } from "./types";
 
 export const engenhariaSstService: ServiceContent = {
   slug: "engenharia-sst",
+  heroImage: "sst-trabalhador-metal",
+  heroAnchor: "timeline",
+  caseImage: "sst-trabalhador-metal",
   eyebrow: "GRO/PGR pela NR-1",
   title: "PGR não é modelo pronto. É engenharia.",
   lead: "Elaboração e gestão de PGR, PCMSO, LTCAT e laudos técnicos para empresas de Recife e região, com levantamento de campo e responsabilidade técnica, não com documento de prateleira.",

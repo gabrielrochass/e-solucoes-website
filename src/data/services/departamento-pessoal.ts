@@ -10,8 +10,11 @@ import type { ServiceContent } from "./types";
 
 export const departamentoPessoalService: ServiceContent = {
   slug: "departamento-pessoal",
+  heroImage: "dp-documentos",
+  heroAnchor: "dp-flow",
+  caseImage: "dp-documentos",
   eyebrow: "eSocial e folha",
-  title: "Folha não se confere depois. Nasce certa.",
+  title: "Da admissão ao eSocial, a folha já nasce conferida.",
   lead: "Terceirização de departamento pessoal para empresas de Recife e região: folha, eSocial, admissões e desligamentos operados por quem também responde pela sua saúde ocupacional.",
   metaDescription:
     "Departamento pessoal em Recife: folha de pagamento, eSocial e admissões sem retrabalho nem multa. Integrado à saúde ocupacional. Peça um diagnóstico.",

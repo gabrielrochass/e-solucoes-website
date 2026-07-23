@@ -60,7 +60,7 @@ export function ProblemCards() {
         title="Três formas de perder dinheiro com conformidade"
         lead="Antes de vender solução, a gente reconhece o tamanho do problema. São estes os três padrões que mais encontramos nas empresas que chegam até nós."
       />
-      <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+      <Stagger className="mt-10 grid gap-6 md:grid-cols-3">
         {problems.map((problem) => (
           <Card key={problem.title} className="flex h-full flex-col">
             <div className="flex items-center justify-between">

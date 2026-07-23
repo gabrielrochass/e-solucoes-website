@@ -35,7 +35,7 @@ export function TrainingsHero({ featured }: { featured: Training[] }) {
     <section className="relative overflow-hidden bg-surface-tint">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12">
         <Entrance className="lg:col-span-6">
-          <EntranceItem>
+          <EntranceItem eager>
             <p className="text-eyebrow text-accent-text">
               Capacitação com certificado nacional
             </p>

@@ -11,20 +11,46 @@ Documento vivo. Explica **por que** cada página é como é e **o que falta** pr
 - **Sem "cara de IA" no texto:** proibidos travessão (—) e middle dot (·) como muleta de pontuação. Separação de dados vira estrutura visual (spans em flex), não caractere. Números sempre tabulares.
 - **Movimento com função.** Animação entra para guiar atenção ou revelar hierarquia, nunca como enfeite. Tudo via `motion` confinado a `src/components/motion/*`.
 
-## Heros por página (por que cada um é diferente)
+## Direção visual: foto real lidera (revisão jul/2026)
 
-O pedido era diferenciar as telas. Cada hero tem um **layout e um mecanismo distintos**, para nenhuma página parecer clone da outra:
+Depois de uma revisão do dono ("não vi fotos, quero remover os gradientes e os gráficos de risco com quadrados e substituir por fotos reais"), o site passou a ser **liderado por foto**:
 
-| Página | Hero | Por quê |
-| --- | --- | --- |
-| **Home** | Fundo petrol-950 + matriz em parallax (desktop) + entrada em cascata blur/stagger do texto | É a tese da marca ("Risco não se adivinha. Dimensiona-se."); o parallax da matriz é a assinatura em movimento |
-| **Serviços** (4) | Split: copy à esquerda + **leque de 3 cards** à direita, com pattern próprio por serviço (DP=linhas de documento, clínica=hexágonos, SST=matriz, complementares=mesh) | As 4 páginas compartilham estrutura mas o pattern/ícone do card central muda — parecem parentes, não cópias |
-| **Treinamentos** | **Fundo claro** (quebra a sequência de heros escuros) + leque de 3 cards de curso reais do catálogo | Único hero claro do site; amarra o hero ao conteúdo (cursos em destaque) |
-| **Blog** | **Editorial**: destaque do artigo mais recente em split (capa + resumo), estilo capa de revista | Entrega conteúdo imediatamente; diferente de todo banner das outras páginas |
-| **Sobre** | Split escuro + **leque de fotos** (equipe/clínica) + logo abaixo, um TextReveal palavra a palavra | O leque de fotos humaniza; o TextReveal dá um respiro editorial antes da tese |
-| **Contato** | Banner enxuto ("Três perguntas e você sai com um caminho") | Deliberadamente sóbrio: o protagonismo é do quiz interativo logo abaixo, não do hero |
+- **Heros por foto** (`PhotoHero`): home, 4 serviços, sobre e contato abrem com uma foto real em tela cheia + overlay petróleo direcional (garante AA do texto claro). Nada de fundo abstrato no hero.
+- **Grafismos abstratos removidos das páginas** (matriz de quadrados, gradientes mesh, hex, doc-lines). Sobrevivem só como marca pequena (células do logo no header, `<hr>` do MDX) e na `/styleguide` interna. Cases de serviço, painéis do sticky-scroll e capas de blog agora usam foto (`Photo`).
+- **Tratamento natural**: `Photo` default = `grade` (dessaturação leve só para coesão). O duotone pesado da versão anterior fazia a foto parecer um gráfico azul — por isso o dono "não via foto". `overlay` (gradiente petróleo) só nos heros, para contraste do texto.
+- **Fotos de pessoas**: stock interino com pessoas (trabalhador, atendimento) em heros/seções; retrato de Adna, equipe e avatares de autor seguem **placeholder sólido honesto** (nunca stock passando por pessoa real da empresa) até a sessão própria.
+- As **âncoras funcionais** (timeline, painel de exames, fluxo DP, pilha de perícias) saíram do hero e viraram **seção do meio** (`ServiceAnchorSection`) — continuam entregando dinamismo, sem competir com a foto na dobra.
+- **Hierarquia**: todo `h1` de página usa `text-display` (contato foi corrigido); eyebrow `eager` (legível desde o SSR).
 
-**Primitivos de animação criados nesta rodada** (`src/components/motion/`): `Entrance`/`EntranceItem` (cascata blur+y, inspirado no Hero10 do 21st.dev), `CardFan` (leque de 3 cards que abrem do centro na entrada, hover levanta). Ambos com fallback estático em reduced-motion.
+### Âncoras funcionais (agora em seção do meio)
+
+Cada serviço tem uma âncora própria logo após o problema: (não um molde decorativo repetido), alternando fundo claro/escuro para nenhuma sequência abrir igual. Resposta direta à crítica "5 páginas com o mesmo molde e metade direita vazia":
+
+| Página | Fundo | Âncora de entrada | Por quê |
+| --- | --- | --- | --- |
+| **Home** | escuro | Matriz em parallax + cascata do texto | Tese da marca; a matriz é a assinatura em movimento |
+| **Engenharia SST** | escuro | **Timeline da legislação** (1978→hoje) puxada pro topo | Era o elemento mais forte do site, estava enterrado no meio |
+| **Clínica** | escuro | **ExamStatusPanel**: exames animando para "Em dia" (verde) | Materializa "cada exame no prazo, cada risco no radar" |
+| **DP** | **claro** | **DpFlow**: admissão→eSocial→folha→desligamento | Mostra a integração que evita a divergência do eSocial |
+| **Complementares** | **claro** | **PericiaStack**: pilha de perícias/laudos em cascata | Concretiza os tipos de serviço técnico |
+| **Treinamentos** | claro | Leque de cursos reais + calculadora CIPA logo abaixo | Amarra ao catálogo; a ferramenta sobe pra dobra |
+| **Blog** | claro | Editorial: artigo em destaque (capa + resumo) | Entrega conteúdo imediatamente |
+| **Sobre** | escuro | **Números animados** (NumberTicker) + leque de fotos | Prova social na dobra; o leque humaniza |
+| **Contato** | escuro | Hero enxuto; o **quiz** é o protagonista logo abaixo | Sóbrio de propósito |
+
+Componentes-âncora novos em `src/components/sections/services/anchors/`. Alternância clara/escura vem de `heroTone` em cada `ServiceContent`; a âncora, de `heroAnchor`.
+
+**Correções de contraste/legibilidade:** o eyebrow agora entra `eager` (legível desde o SSR, não depende da animação — era o "desbotado" que a análise apontou). Títulos de Clínica/DP/Complementares reescritos para quebrar a fórmula "X não se Y. Verbo-se." (mantidos Home e Engenharia). Heros de serviço tiveram a altura reduzida (`py-16/20`) e a metade direita deixou de ser decorativa.
+
+**Fotos reais (confiança):** stock curado tratado em duotone petróleo nos cases dos serviços (`Photo` + `src/lib/photos.ts`); ver Parte de fotos abaixo. Slots humanos (Adna, equipe, clínica com paciente) seguem placeholder até a sessão própria.
+
+**Primitivos de animação** (`src/components/motion/`): `Entrance`/`EntranceItem` (cascata blur+y; prop `eager` no elemento LCP), `CardFan` (leque de 3 cards). Ambos com fallback estático em reduced-motion.
+
+**Mobile (375px):** verificado por medição real de viewport (CDP, `scrollWidth == 375`, zero elementos estourando) em home, serviços e treinamentos. DpFlow empilha vertical, timeline rola horizontal dentro do próprio container, nav vira hambúrguer. Sem overflow horizontal.
+
+## Fotos
+
+Componente `Photo` (`src/components/photo/photo.tsx`) aplica o tratamento do design system a fotos de stock de origens diferentes: `grade` (dessatura), `overlay` (gradiente petróleo sob texto), `duotone` (monocromático petróleo — usado nos cases). 12 fotos de licença livre em `public/images/photos/` (créditos em `CREDITS.md` ao lado). São **interinas**: `docs/IMAGE-SOURCES.md` §3 tem o brief da sessão própria que as substitui. Slots que exigem foto própria (retrato Adna, equipe, clínica com pessoas) continuam placeholder por honestidade — stock não deve sugerir ser a equipe real.
 
 ## Página a página: decisões e pendências
 

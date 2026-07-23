@@ -21,6 +21,10 @@ import { CardFan } from "@/components/motion/card-fan";
 import { NumberTicker } from "@/components/motion/number-ticker";
 import { ScrollTimeline } from "@/components/motion/scroll-timeline";
 import { TextReveal } from "@/components/motion/text-reveal";
+import { Photo } from "@/components/photo/photo";
+import { DpFlow } from "@/components/sections/services/anchors/dp-flow";
+import { ExamStatusPanel } from "@/components/sections/services/anchors/exam-status-panel";
+import { PericiaStack } from "@/components/sections/services/anchors/pericia-stack";
 import { riskLabels, type RiskLevel } from "@/lib/risk";
 
 export const metadata: Metadata = {
@@ -276,6 +280,41 @@ export default function StyleguidePage() {
             },
           ]}
         />
+      </Section>
+
+      <Section title="Fotos (tratamento duotone / overlay)">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <ImageSlot slotId="sg-photo-duotone" ratio="4/3">
+            <Photo photo="sst-trabalhador-metal" treatment="duotone" accent />
+          </ImageSlot>
+          <ImageSlot slotId="sg-photo-overlay" ratio="4/3">
+            <Photo photo="clinica-pressao" treatment="overlay" />
+          </ImageSlot>
+          <ImageSlot slotId="sg-photo-grade" ratio="4/3">
+            <Photo photo="dp-documentos" treatment="grade" />
+          </ImageSlot>
+        </div>
+      </Section>
+
+      <Section title="Âncoras de hero (por serviço)">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="rounded-lg bg-surface-inverse p-6">
+            <p className="text-eyebrow mb-4 text-petrol-300">
+              exam-status (Clínica)
+            </p>
+            <ExamStatusPanel tone="dark" />
+          </div>
+          <div className="rounded-lg bg-surface-tint p-6">
+            <p className="text-eyebrow mb-4 text-accent-text">dp-flow (DP)</p>
+            <DpFlow tone="light" />
+          </div>
+          <div className="rounded-lg bg-surface-tint p-6">
+            <p className="text-eyebrow mb-4 text-accent-text">
+              pericia-stack (Complementares)
+            </p>
+            <PericiaStack tone="light" />
+          </div>
+        </div>
       </Section>
 
       <Section title="Cards">

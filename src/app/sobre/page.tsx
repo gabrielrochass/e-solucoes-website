@@ -7,13 +7,8 @@ import {
   IconEstetoscopio,
   IconFolhaPagamento,
 } from "@/components/icons";
-import { DocLinesPattern } from "@/components/illustrations/doc-lines-pattern";
-import { HexPattern } from "@/components/illustrations/hex-pattern";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
-import { RiskMatrixPattern } from "@/components/illustrations/risk-matrix-pattern";
-import { CardFan } from "@/components/motion/card-fan";
-import { Entrance, EntranceItem } from "@/components/motion/entrance";
+import { NumberTicker } from "@/components/motion/number-ticker";
 import { Reveal } from "@/components/motion/reveal";
 import {
   ScrollTimeline,
@@ -21,6 +16,7 @@ import {
 } from "@/components/motion/scroll-timeline";
 import { Stagger } from "@/components/motion/stagger";
 import { TextReveal } from "@/components/motion/text-reveal";
+import { PhotoHero } from "@/components/sections/shared/photo-hero";
 import { Section } from "@/components/sections/shared/section";
 import { SectionHeading } from "@/components/sections/shared/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -65,18 +61,6 @@ const methodEntries: ScrollTimelineEntry[] = [
             "Retrato de conformidade por pilar (DP, clínica, SST)",
           ]}
         />
-        <div aria-hidden className="mt-6 max-w-56 opacity-80">
-          <RiskMatrixPattern
-            tone="light"
-            rows={3}
-            cols={6}
-            litCells={[
-              { x: 1, y: 1, level: "medium" },
-              { x: 4, y: 0, level: "high" },
-            ]}
-            className="h-auto w-full"
-          />
-        </div>
       </div>
     ),
   },
@@ -95,9 +79,6 @@ const methodEntries: ScrollTimelineEntry[] = [
             "Escopo e orçamento fechados antes de começar",
           ]}
         />
-        <div aria-hidden className="mt-6 h-24 max-w-56 overflow-hidden rounded-md opacity-80">
-          <DocLinesPattern tone="light" />
-        </div>
       </div>
     ),
   },
@@ -116,9 +97,6 @@ const methodEntries: ScrollTimelineEntry[] = [
             "Um responsável técnico com nome e telefone",
           ]}
         />
-        <div aria-hidden className="mt-6 h-24 max-w-56 overflow-hidden rounded-md opacity-80">
-          <HexPattern tone="light" />
-        </div>
       </div>
     ),
   },
@@ -142,6 +120,13 @@ const methodEntries: ScrollTimelineEntry[] = [
   },
 ];
 
+/** [VALIDAR] números do PRD — confirmar com a E-Soluções antes do go-live. */
+const heroStats = [
+  { value: 850, suffix: "+", label: "empresas atendidas" },
+  { value: 100, suffix: "%", label: "clientes com compliance ativo" },
+  { value: 35, suffix: "%", label: "de redução média no custo de DP" },
+];
+
 const pillars = [
   { icon: IconFolhaPagamento, label: "Departamento Pessoal" },
   { icon: IconEstetoscopio, label: "Clínica Ocupacional" },
@@ -152,61 +137,34 @@ const pillars = [
 export default function SobrePage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-surface-inverse text-ink-on-inverse">
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12">
-          <Entrance className="lg:col-span-6">
-            <EntranceItem>
-              <p className="text-eyebrow text-petrol-300">Sobre a E-Soluções</p>
-            </EntranceItem>
-            <EntranceItem eager>
-              <h1 className="text-display mt-4 text-white">
-                Conformidade não é papelada.{" "}
-                <span className="text-accent-on-inverse">É engenharia.</span>
-              </h1>
-            </EntranceItem>
-            <EntranceItem>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
-                Nascemos da constatação de que folha, exames e riscos viviam
-                em três fornecedores que não se falavam, e de que era
-                exatamente nessa fresta que moravam as multas. A E-Soluções
-                existe para fechar essa fresta.
-              </p>
-            </EntranceItem>
-          </Entrance>
-
-          <div className="lg:col-span-6">
-            <CardFan
-              className="mx-auto max-w-md"
-              cards={[
-                <ImageSlot
-                  key="1"
-                  slotId="sobre-hero-1"
-                  ratio="4/5"
-                  className="h-full bg-petrol-900"
-                >
-                  <HexPattern tone="dark" />
-                </ImageSlot>,
-                <ImageSlot
-                  key="2"
-                  slotId="sobre-hero-2"
-                  ratio="4/5"
-                  className="h-full bg-petrol-900"
-                >
-                  <MeshGradient variant="petrol-orange" seed={2} />
-                </ImageSlot>,
-                <ImageSlot
-                  key="3"
-                  slotId="sobre-hero-3"
-                  ratio="4/5"
-                  className="h-full bg-petrol-900"
-                >
-                  <DocLinesPattern tone="dark" />
-                </ImageSlot>,
-              ]}
-            />
-          </div>
-        </div>
-      </section>
+      <PhotoHero
+        photo="sst-trabalhadores"
+        priority
+        eyebrow="Sobre a E-Soluções"
+        title={
+          <>
+            Conformidade não é papelada.{" "}
+            <span className="text-accent-on-inverse">É engenharia.</span>
+          </>
+        }
+        lead="Nascemos da constatação de que folha, exames e riscos viviam em três fornecedores que não se falavam, e de que era exatamente nessa fresta que moravam as multas. A E-Soluções existe para fechar essa fresta."
+      >
+        <dl className="mt-9 grid max-w-lg grid-cols-3 gap-6 border-t border-petrol-800 pt-6">
+          {heroStats.map((stat) => (
+            <div key={stat.label}>
+              <dd className="text-stat text-white">
+                <NumberTicker value={stat.value} />
+                <span className="text-h3 text-accent-on-inverse">
+                  {stat.suffix}
+                </span>
+              </dd>
+              <dt className="mt-1 text-xs leading-snug text-ink-muted-on-inverse">
+                {stat.label}
+              </dt>
+            </div>
+          ))}
+        </dl>
+      </PhotoHero>
 
       <Section>
         <TextReveal
@@ -252,7 +210,13 @@ export default function SobrePage() {
           <div className="grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <ImageSlot slotId="sobre-especialista" ratio="3/4">
-                <MeshGradient variant="petrol-orange" seed={1} />
+                <div className="flex size-full items-center justify-center bg-petrol-900 px-4 text-center">
+                  <span className="text-eyebrow text-petrol-300">
+                    Foto de {siteConfig.specialist.name}
+                    <br />
+                    (sessão própria)
+                  </span>
+                </div>
               </ImageSlot>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">

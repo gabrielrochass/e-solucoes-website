@@ -5,16 +5,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TimelineItem } from "@/components/interactive/legislation-timeline/timeline-item";
 import type { LegislationEvent } from "@/lib/legislation";
+import { cn } from "@/lib/utils";
 
 interface LegislationTimelineProps {
   events: LegislationEvent[];
+  /** "dark" quando usado sobre fundo petróleo (hero de Engenharia). */
+  tone?: "dark" | "light";
 }
 
 /**
  * Trilho horizontal com scroll-snap. Teclado: setas ←/→ movem o foco entre
  * cards (roving tabindex) e centralizam o card focado.
  */
-export function LegislationTimeline({ events }: LegislationTimelineProps) {
+export function LegislationTimeline({
+  events,
+  tone = "light",
+}: LegislationTimelineProps) {
+  const dark = tone === "dark";
   const [focusIndex, setFocusIndex] = useState(0);
   const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const trackRef = useRef<HTMLUListElement>(null);
@@ -49,7 +56,10 @@ export function LegislationTimeline({ events }: LegislationTimelineProps) {
           role="list"
           aria-label="Linha do tempo da legislação"
           onKeyDown={handleKeyDown}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto border-b border-neutral-200 pb-8 scrollbar-thin"
+          className={cn(
+            "flex snap-x snap-mandatory gap-4 overflow-x-auto border-b pb-8 scrollbar-thin",
+            dark ? "border-petrol-800" : "border-neutral-200",
+          )}
         >
           {events.map((event, index) => (
             <TimelineItem
@@ -65,11 +75,19 @@ export function LegislationTimeline({ events }: LegislationTimelineProps) {
         </ul>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l from-surface to-transparent"
+          className={cn(
+            "pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l to-transparent",
+            dark ? "from-surface-inverse" : "from-surface",
+          )}
         />
       </div>
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-eyebrow text-ink-meta">
+        <p
+          className={cn(
+            "text-eyebrow",
+            dark ? "text-petrol-300" : "text-ink-meta",
+          )}
+        >
           Use as setas ← → para navegar
         </p>
         <div className="flex gap-2">

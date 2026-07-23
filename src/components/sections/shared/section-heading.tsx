@@ -9,8 +9,9 @@ interface SectionHeadingProps {
 }
 
 /**
- * Header de seção com deslocamento assimétrico: eyebrow na coluna 1,
- * título começando na coluna 2 em desktop (nada centrado).
+ * Header de seção: eyebrow pequeno, título grande logo abaixo, tudo alinhado
+ * à esquerda (sem deslocamento de coluna). Título prominente para não
+ * competir mal com o corpo.
  */
 export function SectionHeading({
   eyebrow,
@@ -20,37 +21,33 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("grid gap-3 lg:grid-cols-12", className)}>
+    <div className={cn("max-w-2xl", className)}>
       <p
         className={cn(
-          "text-eyebrow lg:col-span-12",
+          "text-eyebrow",
           tone === "inverse" ? "text-accent-on-inverse" : "text-accent-text",
         )}
       >
         {eyebrow}
       </p>
-      <div className="lg:col-span-10 lg:col-start-2">
-        <h2
+      <h2
+        className={cn(
+          "mt-3 text-3xl font-semibold tracking-tight sm:text-4xl",
+          tone === "inverse" ? "text-white" : "text-petrol-700",
+        )}
+      >
+        {title}
+      </h2>
+      {lead && (
+        <p
           className={cn(
-            "text-h2",
-            tone === "inverse" ? "text-white" : "text-petrol-700",
+            "mt-4 leading-relaxed",
+            tone === "inverse" ? "text-ink-muted-on-inverse" : "text-ink-muted",
           )}
         >
-          {title}
-        </h2>
-        {lead && (
-          <p
-            className={cn(
-              "mt-3 max-w-2xl",
-              tone === "inverse"
-                ? "text-ink-muted-on-inverse"
-                : "text-ink-muted",
-            )}
-          >
-            {lead}
-          </p>
-        )}
-      </div>
+          {lead}
+        </p>
+      )}
     </div>
   );
 }

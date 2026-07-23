@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactFlow } from "@/components/interactive/contact/contact-flow";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
+import { PhotoHero } from "@/components/sections/shared/photo-hero";
 import { Section } from "@/components/sections/shared/section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/seo/schema";
@@ -15,19 +16,13 @@ export const metadata: Metadata = {
 export default function ContatoPage() {
   return (
     <>
-      <section className="bg-surface-inverse text-ink-on-inverse">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-eyebrow text-petrol-300">Contato</p>
-          <h1 className="text-display mt-4 max-w-2xl text-white">
-            Três perguntas e você sai com um caminho.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted-on-inverse">
-            Responda o diagnóstico rápido. Ele preenche o formulário com o
-            assunto certo. Prefere conversar direto? O WhatsApp está logo
-            abaixo.
-          </p>
-        </div>
-      </section>
+      <PhotoHero
+        photo="clinica-medica-luvas"
+        priority
+        eyebrow="Contato"
+        title="Três perguntas e você sai com um caminho."
+        lead="Responda o diagnóstico rápido. Ele preenche o formulário com o assunto certo. Prefere conversar direto? O WhatsApp está logo abaixo."
+      />
 
       <Section>
         <ContactFlow />

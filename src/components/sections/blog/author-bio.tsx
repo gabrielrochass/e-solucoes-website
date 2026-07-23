@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ImageSlot } from "@/components/illustrations/image-slot";
-import { MeshGradient } from "@/components/illustrations/mesh-gradient";
 import type { Author } from "@/lib/posts";
 
 export function AuthorBio({ author }: { author: Author }) {
@@ -13,7 +12,11 @@ export function AuthorBio({ author }: { author: Author }) {
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
         <div className="w-20 shrink-0">
           <ImageSlot slotId={`autor-${author.key}`} ratio="1/1" className="rounded-full">
-            <MeshGradient variant="petrol-orange" seed={1} />
+            <div className="flex size-full items-center justify-center bg-petrol-100 text-petrol-700">
+              <span className="text-h3">
+                {author.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+              </span>
+            </div>
           </ImageSlot>
         </div>
         <div className="flex-1">

@@ -22,16 +22,8 @@ export default async function TreinamentosPage() {
     <>
       <TrainingsHero featured={featured} />
 
-      <Section id="catalogo">
-        <TrainingComparisonTable trainings={catalog} />
-        <p className="mt-8 max-w-2xl text-sm text-ink-meta">
-          Precisa de um programa in company ou de um volume maior de
-          matrículas? Fale com a gente pelo formulário de contato: montamos a
-          trilha pelo grau de risco da sua operação.
-        </p>
-      </Section>
-
-      <Section tone="tint" id="diagnostico-cipa">
+      {/* Calculadora primeiro: é a ferramenta que diferencia a página. */}
+      <Section id="diagnostico-cipa">
         <SectionHeading
           eyebrow="Dimensionamento pela NR-5"
           title="Não sabe qual CIPA sua empresa precisa?"
@@ -40,6 +32,22 @@ export default async function TreinamentosPage() {
         <div className="mt-12">
           <CipaDiagnostic />
         </div>
+      </Section>
+
+      <Section tone="tint" id="catalogo">
+        <SectionHeading
+          eyebrow="Catálogo completo"
+          title="Todos os programas, lado a lado"
+          lead="Filtre por norma, modalidade e grau de risco; compare carga horária e preço."
+        />
+        <div className="mt-12">
+          <TrainingComparisonTable trainings={catalog} />
+        </div>
+        <p className="mt-8 max-w-2xl text-sm text-ink-meta">
+          Precisa de um programa in company ou de um volume maior de
+          matrículas? Fale com a gente pelo formulário de contato: montamos a
+          trilha pelo grau de risco da sua operação.
+        </p>
       </Section>
 
       {catalog.map((training) => (
