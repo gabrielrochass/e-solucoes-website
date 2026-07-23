@@ -1,114 +1,92 @@
-"use client";
-
-import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { TimelineItem } from "@/components/interactive/legislation-timeline/timeline-item";
-import type { LegislationEvent } from "@/lib/legislation";
+import { CardBadge } from "@/components/cards/card";
+import {
+  impactLabels,
+  impactToRisk,
+  type LegislationEvent,
+} from "@/lib/legislation";
 import { cn } from "@/lib/utils";
 
 interface LegislationTimelineProps {
   events: LegislationEvent[];
-  /** "dark" quando usado sobre fundo petróleo (hero de Engenharia). */
   tone?: "dark" | "light";
 }
 
+/** Ponto colorido por impacto do marco. */
+const dotColor: Record<LegislationEvent["impact"], string> = {
+  critical: "bg-risk-high-solid",
+  important: "bg-risk-medium-solid",
+  update: "bg-petrol-400",
+};
+
 /**
- * Trilho horizontal com scroll-snap. Teclado: setas ←/→ movem o foco entre
- * cards (roving tabindex) e centralizam o card focado.
+ * Linha do tempo em estilo "roadmap": um trilho horizontal com pontos, cada
+ * marco com ano, norma e uma linha de contexto. Tudo visível (sem expandir no
+ * hover). Rola na horizontal em telas estreitas.
  */
 export function LegislationTimeline({
   events,
   tone = "light",
 }: LegislationTimelineProps) {
   const dark = tone === "dark";
-  const [focusIndex, setFocusIndex] = useState(0);
-  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const trackRef = useRef<HTMLUListElement>(null);
-
-  function moveFocus(nextIndex: number) {
-    const clamped = Math.max(0, Math.min(events.length - 1, nextIndex));
-    setFocusIndex(clamped);
-    const el = itemRefs.current[clamped];
-    el?.focus();
-    el?.scrollIntoView({ inline: "center", block: "nearest" });
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      moveFocus(focusIndex + 1);
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      moveFocus(focusIndex - 1);
-    }
-  }
-
-  function scrollByCards(direction: 1 | -1) {
-    trackRef.current?.scrollBy({ left: direction * 312, behavior: "smooth" });
-  }
 
   return (
-    <div>
-      <div className="relative">
-        <ul
-          ref={trackRef}
-          role="list"
-          aria-label="Linha do tempo da legislação"
-          onKeyDown={handleKeyDown}
-          className={cn(
-            "flex snap-x snap-mandatory gap-4 overflow-x-auto border-b pb-8 scrollbar-thin",
-            dark ? "border-petrol-800" : "border-neutral-200",
-          )}
-        >
-          {events.map((event, index) => (
-            <TimelineItem
-              key={event.id}
-              event={event}
-              tabIndex={index === focusIndex ? 0 : -1}
-              onFocus={() => setFocusIndex(index)}
-              buttonRef={(el) => {
-                itemRefs.current[index] = el;
-              }}
-            />
-          ))}
-        </ul>
-        <div
-          aria-hidden
-          className={cn(
-            "pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l to-transparent",
-            dark ? "from-surface-inverse" : "from-surface",
-          )}
-        />
-      </div>
-      <div className="mt-4 flex items-center justify-between">
-        <p
-          className={cn(
-            "text-eyebrow",
-            dark ? "text-petrol-300" : "text-ink-meta",
-          )}
-        >
-          Use as setas ← → para navegar
-        </p>
-        <div className="flex gap-2">
-          <Button
-            variant="outline"
-            size="icon"
-            aria-label="Eventos anteriores"
-            onClick={() => scrollByCards(-1)}
+    <ol
+      role="list"
+      aria-label="Linha do tempo da legislação"
+      tabIndex={0}
+      className={cn(
+        // trilho contínuo atrás dos pontos via pseudo (não é filho da lista)
+        "relative flex gap-8 overflow-x-auto pb-2 scrollbar-thin before:pointer-events-none before:absolute before:inset-x-0 before:top-1.5 before:h-px before:content-[''] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-600",
+        dark ? "before:bg-petrol-800" : "before:bg-neutral-300",
+      )}
+    >
+      {events.map((event) => (
+        <li key={event.id} className="relative min-w-50 flex-1 pt-7">
+          <span
+            aria-hidden
+            className={cn(
+              "absolute left-0 top-0.5 size-3 rounded-full ring-4",
+              dotColor[event.impact],
+              dark ? "ring-surface-inverse" : "ring-surface-tint",
+            )}
+          />
+          <p
+            className={cn(
+              "text-2xl font-bold tabular-nums",
+              dark ? "text-white" : "text-petrol-700",
+            )}
           >
-            <ChevronLeft />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            aria-label="Próximos eventos"
-            onClick={() => scrollByCards(1)}
+            {event.year}
+          </p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <CardBadge nr={event.nr} nivel={impactToRisk[event.impact]} />
+            <span
+              className={cn(
+                "text-eyebrow",
+                dark ? "text-ink-muted-on-inverse" : "text-ink-meta",
+              )}
+            >
+              {impactLabels[event.impact]}
+            </span>
+          </div>
+          <h3
+            className={cn(
+              "mt-2 font-semibold",
+              dark ? "text-white" : "text-petrol-700",
+            )}
           >
-            <ChevronRight />
-          </Button>
-        </div>
-      </div>
-    </div>
+            {event.title}
+          </h3>
+          <p
+            className={cn(
+              "mt-1 text-sm leading-relaxed",
+              dark ? "text-ink-muted-on-inverse" : "text-ink-muted",
+            )}
+          >
+            {event.summary}
+          </p>
+        </li>
+      ))}
+    </ol>
   );
 }

@@ -15,7 +15,6 @@ import {
   type ScrollTimelineEntry,
 } from "@/components/motion/scroll-timeline";
 import { Stagger } from "@/components/motion/stagger";
-import { TextReveal } from "@/components/motion/text-reveal";
 import { PhotoHero } from "@/components/sections/shared/photo-hero";
 import { Section } from "@/components/sections/shared/section";
 import { SectionHeading } from "@/components/sections/shared/section-heading";
@@ -165,13 +164,6 @@ export default function SobrePage() {
           ))}
         </dl>
       </PhotoHero>
-
-      <Section>
-        <TextReveal
-          text="Risco dimensionado. Pessoas protegidas. Empresa em conformidade."
-          className="text-display mx-auto max-w-4xl text-petrol-700"
-        />
-      </Section>
 
       <Section tone="tint">
         <SectionHeading

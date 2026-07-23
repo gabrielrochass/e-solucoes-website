@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/lib/site-config";
 
-export function MainNav() {
+/** `light` = renderizado sobre hero escuro transparente (texto claro). */
+export function MainNav({ light = false }: { light?: boolean }) {
   const pathname = usePathname();
 
   return (
@@ -22,8 +23,10 @@ export function MainNav() {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium text-ink-muted transition-colors hover:bg-petrol-50 hover:text-petrol-700",
-                  isActive && "text-petrol-700",
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  light
+                    ? "text-petrol-100 hover:bg-white/10 hover:text-white aria-[current=page]:text-white"
+                    : "text-ink-muted hover:bg-petrol-50 hover:text-petrol-700 aria-[current=page]:text-petrol-700",
                 )}
               >
                 {link.label}

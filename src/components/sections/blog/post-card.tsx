@@ -17,8 +17,12 @@ export function PostCard({ post }: { post: Post }) {
   );
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg bg-surface-raised shadow-card transition-[box-shadow,translate] duration-200 hover:-translate-y-0.5 hover:shadow-card-hover">
-      <ImageSlot slotId={`blog-cover-${post.slug}`} ratio="16/9" className="rounded-b-none">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-surface-raised shadow-card transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+      <ImageSlot
+        slotId={`blog-cover-${post.slug}`}
+        ratio="16/9"
+        className="rounded-b-none [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-105"
+      >
         <CoverPlaceholder post={post} />
       </ImageSlot>
       <div className="flex flex-1 flex-col p-card">

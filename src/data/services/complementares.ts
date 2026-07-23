@@ -11,7 +11,7 @@ import type { ServiceContent } from "./types";
 
 export const complementaresService: ServiceContent = {
   slug: "complementares",
-  heroImage: "sst-trabalhador-colete",
+  heroImage: "sst-capacetes-fila",
   heroAnchor: "pericia-stack",
   caseImage: "clinica-prancheta",
   eyebrow: "Perícias e apoio técnico",

@@ -17,7 +17,8 @@ export default function ContatoPage() {
   return (
     <>
       <PhotoHero
-        photo="clinica-medica-luvas"
+        photo="clinica-profissional"
+        align="center"
         priority
         eyebrow="Contato"
         title="Três perguntas e você sai com um caminho."

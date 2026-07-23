@@ -11,9 +11,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import { navLinks, serviceLinks } from "@/lib/site-config";
 
-export function MobileNav() {
+export function MobileNav({ light = false }: { light?: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,7 +23,11 @@ export function MobileNav() {
         <Button
           variant="outline"
           size="icon"
-          className="md:hidden"
+          className={cn(
+            "md:hidden",
+            light &&
+              "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white",
+          )}
           aria-label="Abrir menu"
         >
           <Menu />

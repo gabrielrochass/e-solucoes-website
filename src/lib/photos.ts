@@ -76,15 +76,40 @@ export const stockPhotos = {
     alt: "Documentos fiscais, notas e calculadora sobre mesa de trabalho",
     credit: "Pexels",
   },
+  "dp-escritorio": {
+    src: "/images/photos/dp-escritorio.jpg",
+    alt: "Equipe analisando relatórios e gráficos sobre a mesa de trabalho",
+    credit: "Pexels",
+  },
+  "sst-industria": {
+    src: "/images/photos/sst-industria.jpg",
+    alt: "Trabalhadora com capacete e óculos de proteção operando em ambiente industrial",
+    credit: "Pexels",
+  },
+  "sst-capacetes-fila": {
+    src: "/images/photos/sst-capacetes-fila.jpg",
+    alt: "Fileira de capacetes de segurança amarelos",
+    credit: "Unsplash",
+  },
+  "clinica-medico-paciente": {
+    src: "/images/photos/clinica-medico-paciente.jpg",
+    alt: "Profissional de saúde medindo a pressão de um paciente em consulta",
+    credit: "Unsplash",
+  },
+  "clinica-profissional": {
+    src: "/images/photos/clinica-profissional.jpg",
+    alt: "Profissional de saúde de jaleco com estetoscópio",
+    credit: "Pexels",
+  },
 } as const;
 
 export type StockPhotoKey = keyof typeof stockPhotos;
 
 /** Foto de capa de artigo por domínio (tags/nrs), interina até arte própria. */
 export function blogCoverPhoto(tags: string[]): StockPhotoKey {
-  if (tags.includes("clínica ocupacional")) return "clinica-medica-luvas";
-  if (tags.includes("departamento pessoal")) return "dp-documentos";
+  if (tags.includes("clínica ocupacional")) return "clinica-estetoscopio";
+  if (tags.includes("departamento pessoal")) return "dp-calculadora";
   if (tags.some((t) => t.includes("perícia") || t.includes("laudo")))
-    return "sst-trabalhador-colete";
-  return "sst-trabalhador-metal";
+    return "sst-capacetes-parede";
+  return "sst-soldador";
 }

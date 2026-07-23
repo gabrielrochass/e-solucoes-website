@@ -10,7 +10,7 @@ import type { ServiceContent } from "./types";
 
 export const departamentoPessoalService: ServiceContent = {
   slug: "departamento-pessoal",
-  heroImage: "dp-documentos",
+  heroImage: "dp-escritorio",
   heroAnchor: "dp-flow",
   caseImage: "dp-documentos",
   eyebrow: "eSocial e folha",

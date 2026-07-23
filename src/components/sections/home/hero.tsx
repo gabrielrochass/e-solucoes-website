@@ -1,18 +1,24 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { RotatingWord } from "@/components/motion/rotating-word";
 import { PhotoHero } from "@/components/sections/shared/photo-hero";
 
 export function Hero() {
   return (
     <PhotoHero
-      photo="sst-trabalhador-metal"
+      photo="sst-industria"
       size="tall"
+      align="center"
       priority
       eyebrow="SST, clínica ocupacional e departamento pessoal"
       title={
         <>
-          Risco não se adivinha.{" "}
-          <span className="text-accent-on-inverse">Dimensiona-se.</span>
+          Segurança do trabalho
+          <br />
+          <RotatingWord
+            className="text-accent-on-inverse"
+            words={["dimensionada", "monitorada", "integrada", "descomplicada"]}
+          />
         </>
       }
       lead="A E-Soluções une engenharia de SST, clínica ocupacional e departamento pessoal em uma operação só: conformidade legal sem complexidade, em Recife e região."

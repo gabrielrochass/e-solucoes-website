@@ -11,7 +11,7 @@ import type { ServiceContent } from "./types";
 
 export const clinicaOcupacionalService: ServiceContent = {
   slug: "clinica-ocupacional",
-  heroImage: "clinica-pressao",
+  heroImage: "clinica-medico-paciente",
   heroAnchor: "exam-status",
   caseImage: "clinica-otoscopia",
   eyebrow: "PCMSO pela NR-7",
